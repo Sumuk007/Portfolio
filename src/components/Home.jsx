@@ -19,17 +19,6 @@ const HomePage = () => {
         className="absolute inset-0 opacity-30"
       />
       
-      {/* Static radial gradient overlay */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: `radial-gradient(circle at center, 
-            rgba(255, 255, 255, 0.1) 0%, 
-            rgba(255, 255, 255, 0.05) 30%, 
-            rgba(0, 0, 0, 0.3) 60%, 
-            rgba(0, 0, 0, 0.9) 100%)`
-        }}
-      />
 
       {/* Floating particles animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -40,7 +29,7 @@ const HomePage = () => {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `float ${5 + Math.random() * 10}s ease-in-out infinite`,
+              animation: `float ${10 + Math.random() * 10}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`
             }}
           />
@@ -121,7 +110,7 @@ const HomePage = () => {
         <a
           href="/resume.pdf"
           download
-          className="group relative mb-40 lg:mb-0 overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-4 py-2 rounded-full transition-all duration-300 transform shadow-lg hover:shadow-xl"
+          className="group relative mb-30 lg:mb-0 overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-4 py-2 rounded-full transition-all duration-300 transform shadow-lg hover:shadow-xl"
           style={{
             animation: 'fadeInUp 1s ease-out 0.8s both'
           }}

@@ -103,8 +103,9 @@ const Skills = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-white mb-2">Skills</h2>
-          <p className="text-white/85">Technologies I work with</p>
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Skills</h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">Technologies I work with</p>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto mt-6 rounded-full"></div>
         </div>
 
         {/* Tech Stacks */}
