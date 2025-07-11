@@ -55,7 +55,7 @@ const HomePage = () => {
             animation: 'fadeInUp 1s ease-out 0.2s both'
           }}
         >
-          Hi, I am <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Sumuk</span>
+          Hi, I am <span className="text-blue-700 bg-clip-text underline">Sumuk</span>
         </h1>
 
         {/* Role & Location */}
@@ -110,7 +110,7 @@ const HomePage = () => {
         <a
           href="/resume.pdf"
           download
-          className="group relative mb-30 lg:mb-0 overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-4 py-2 rounded-full transition-all duration-300 transform shadow-lg hover:shadow-xl"
+          className="group relative mb-30 lg:mb-0 overflow-hidden bg-blue-700 hover:scale-110 text-white font-medium px-4 py-2 rounded-full transition-all duration-300 transform shadow-lg hover:shadow-xl"
           style={{
             animation: 'fadeInUp 1s ease-out 0.8s both'
           }}
