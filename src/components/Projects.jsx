@@ -121,9 +121,9 @@ const Projects = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/btn relative p-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full border border-gray-600 hover:border-purple-400 transition-all duration-300 hover:scale-110"
+                    className="group/btn relative p-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full border border-gray-600 hover:border-cyan-400 transition-all duration-300 hover:scale-110"
                   >
-                    <Github className="w-6 h-6 text-white group-hover/btn:text-purple-400 transition-colors duration-300" />
+                    <Github className="w-6 h-6 text-white group-hover/btn:text-cyan-400 transition-colors duration-300" />
                     <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-sm opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
                       Code
                     </span>
@@ -135,9 +135,9 @@ const Projects = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn relative p-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full border border-gray-600 hover:border-purple-400 transition-all duration-300 hover:scale-110"
+                      className="group/btn relative p-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full border border-gray-600 hover:border-cyan-400 transition-all duration-300 hover:scale-110"
                     >
-                      <ExternalLink className="w-6 h-6 text-white group-hover/btn:text-purple-400 transition-colors duration-300" />
+                      <ExternalLink className="w-6 h-6 text-white group-hover/btn:text-cyan-400 transition-colors duration-300" />
                       <span className="absolute text-nowrap -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-sm opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
                         Live Demo
                       </span>
@@ -149,7 +149,7 @@ const Projects = () => {
               {/* Project Content */}
               <div className="p-6 space-y-4">
                 {/* Project Title */}
-                <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
                   {project.title}
                 </h3>
 
@@ -164,7 +164,7 @@ const Projects = () => {
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-gray-800 text-purple-400 text-xs rounded-full border border-gray-700 hover:border-purple-400 transition-colors duration-300"
+                        className="px-3 font-bold py-1 bg-gray-800 text-cyan-400 text-xs rounded-full border border-gray-700 hover:border-cyan-400 transition-colors duration-300"
                       >
                         {tech}
                       </span>
