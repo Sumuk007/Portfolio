@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import reacticon from "../assets/icons/react_icon.svg";
 import htmlicon from "../assets/icons/html.svg";
-import jsicon from "../assets/icons/favascript.svg";
+import jsicon from "../assets/icons/javascript.svg";
 import tailwindicon from "../assets/icons/tailwind.svg";
 import cssicon from "../assets/icons/css.svg";
 import pythonicon from "../assets/icons/python.svg";
