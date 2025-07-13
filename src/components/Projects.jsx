@@ -4,6 +4,7 @@ import ai_resume from "../assets/projects/ai_resume_analyzer.png";
 import reelninja from "../assets/projects/reelninja.png";
 import packageinfo from "../assets/projects/package_info.png";
 
+
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
 
