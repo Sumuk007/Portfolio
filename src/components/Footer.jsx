@@ -1,18 +1,22 @@
 import React from 'react';
+import gmailicon from '../assets/icons/gmail.svg';
+import phoneicon from '../assets/icons/phone.svg';
+import instagramicon from '../assets/icons/instagram.svg';
+import githubicon from '../assets/icons/github.svg';
+import linkedinicon from '../assets/icons/linkedin.svg';
+
+
  const Footer = () => {
   const socialLinks = [
-    { name: 'GitHub', icon: '🐙', url: '#', color: 'hover:bg-purple-500/20 hover:border-purple-400' },
-    { name: 'LinkedIn', icon: '💼', url: '#', color: 'hover:bg-blue-500/20 hover:border-blue-400' },
-    { name: 'Twitter', icon: '🐦', url: '#', color: 'hover:bg-sky-500/20 hover:border-sky-400' },
-    { name: 'Instagram', icon: '📸', url: '#', color: 'hover:bg-pink-500/20 hover:border-pink-400' }
+    { name: 'GitHub', url: 'https://github.com/Sumuk007', color: 'bg-white/70 hover:bg-white', src: githubicon },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/sumuk/#', color: 'hover:bg-blue-500/20 hover:border-blue-400', src: linkedinicon },
+    { name: 'Instagram', url: 'https://www.instagram.com/__sumuk__bhat__?igsh=MWdtOXhiN3Y0YTZmMA==', color: 'hover:bg-pink-500/20 hover:border-pink-400', src: instagramicon },
   ];
 
   return (
-    <div className="bg-black">
+    <div className="bg-black mt-0">
       <footer className="relative overflow-hidden">
-        
-        {/* Background glow effect */}
-        <div className=" w-250 border-b-2 border-white/40 mx-auto"></div>
+        <div className=" w-80 md:w-250 border-b-2 border-white/40 mx-auto"></div>
         
         <div className="relative max-w-6xl mx-auto px-6 py-8">
           {/* Top row: Contact info left, Social icons right */}
@@ -20,37 +24,38 @@ import React from 'react';
             
             {/* Left: Contact Info - Ready for your images */}
             <div className="flex flex-col space-y-3">
-              <a href="mailto:hello@yourname.com" className="group flex items-center space-x-3 text-gray-300 hover:text-white transition-all duration-300">
-                <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-cyan-400/25 transition-all duration-300">
-                  {/* Your email icon image will go here */}
+              <a href="mailto:sumukbhat007@gmail.com" className="group flex items-center space-x-3 text-gray-300 hover:text-white transition-all duration-300">
+                <div className="w-8 h-8  rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-white/25 transition-all duration-300">
+                  <img src={gmailicon} alt="Gmail" />
                   <div className="w-5 h-5 bg-white/20 rounded opacity-50"></div>
                 </div>
                 <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">
-                  hello@yourname.com
+                  sumukbhat007@gmail.com
                 </span>
               </a>
-              <a href="tel:+1234567890" className="group flex items-center space-x-3 text-gray-300 hover:text-white transition-all duration-300">
-                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-emerald-400/25 transition-all duration-300">
-                  {/* Your phone icon image will go here */}
+              <a href="tel:+91-7899097174" className="group flex items-center space-x-3 text-gray-300 hover:text-white transition-all duration-300">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-white/25 transition-all duration-300">
+                  <img src={phoneicon} alt="Phone" />
                   <div className="w-5 h-5 bg-white/20 rounded opacity-50"></div>
                 </div>
                 <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">
-                  +1 (234) 567-890
+                  +91-7899097174
                 </span>
               </a>
             </div>
-
+ 
             {/* Right: Social Links - Ready for your images */}
-            <div className="flex items-center space-x-4">
+            <div className=" flex flex-wrap md:flex-row justify-end md:justify-center space-x-4">
               {socialLinks.map((social, index) => (
                 <a
                   key={social.name}
-                  href="#"
+                  href={social.url}
+                  target='_blank'
                   className={`group mt-4 relative w-10 h-10 bg-gray-800/50 backdrop-blur-sm rounded-xl flex items-center justify-center border border-gray-700/50 transition-all duration-300 hover:scale-110 hover:rotate-12 ${social.color} hover:shadow-lg`}
                   aria-label={social.name}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Your image will go here */}
+                  <img src={social.src} alt={social.name} />
                   <div className="w-6 h-6 bg-gray-600 rounded opacity-30"></div>
                   
                   {/* Tooltip */}

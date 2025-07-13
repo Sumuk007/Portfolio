@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Github, ExternalLink, Code, Laptop } from "lucide-react";
+import ai_resume from "../assets/projects/ai-resume_analyzer.png";
+import reelninja from "../assets/projects/reelninja.png";
+import packageinfo from "../assets/projects/package_info.png";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -8,74 +11,38 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "AI Resume Analyzer",
       description:
-        "A full-stack e-commerce platform with user authentication, payment integration, and admin dashboard. Features include product catalog, shopping cart, and order management.",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-      githubUrl: "https://github.com/yourusername/ecommerce-platform",
-      liveUrl: "https://your-ecommerce-site.com",
-      techStack: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
+        "An AI tool that reviews resumes against job descriptions, scores them out of 100, and suggests key improvements to boost job relevance.",
+      image: ai_resume,
+      githubUrl: "https://github.com/Sumuk007/AI-Resume-Analyzer",
+      liveUrl: "https://resumeanalyzer-ai.vercel.app/",
+      techStack: ["React", "FastAPI", "Gemini API", "Axios", "Tailwind CSS"],
     },
     {
       id: 2,
-      title: "Task Management App",
+      title: "ReelNinja - Instagram Reel Downloader",
       description:
-        "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-      githubUrl: "https://github.com/yourusername/task-manager",
-      liveUrl: "https://your-task-app.com",
-      techStack: ["React", "Firebase", "Material-UI", "Socket.io"],
+        "A tool to download Instagram Reels or extract audio quickly and easily using just the reel URL.",
+      image: reelninja,
+      githubUrl: "https://github.com/Sumuk007/ReelNinja",
+      liveUrl: "https://reelninja.onrender.com/",
+      techStack: ["Django","Python", "HTML", "CSS", "Bootstrap"],
     },
     {
       id: 3,
-      title: "Weather Dashboard",
+      title: "Python Package Info Viewer",
       description:
-        "A responsive weather dashboard with location-based forecasts, interactive charts, and weather alerts. Includes 7-day forecasts and weather maps.",
-      image:
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-      githubUrl: "https://github.com/yourusername/weather-dashboard",
-      liveUrl: "https://your-weather-app.com",
-      techStack: ["Vue.js", "OpenWeather API", "Chart.js", "CSS3"],
-    },
-    {
-      id: 4,
-      title: "Social Media Analytics",
-      description:
-        "An analytics dashboard for social media metrics with data visualization, trend analysis, and automated reporting features.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
-      githubUrl: "https://github.com/yourusername/social-analytics",
-      liveUrl: null, // No live demo available
-      techStack: ["Python", "Django", "PostgreSQL", "D3.js", "Bootstrap"],
-    },
-    {
-      id: 5,
-      title: "AI Chat Bot",
-      description:
-        "An intelligent chatbot with natural language processing, context awareness, and multi-language support for customer service automation.",
-      image:
-        "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=500&h=300&fit=crop",
-      githubUrl: "https://github.com/yourusername/ai-chatbot",
-      liveUrl: "https://your-chatbot-demo.com",
-      techStack: ["Python", "TensorFlow", "Flask", "OpenAI API", "React"],
-    },
-    {
-      id: 6,
-      title: "Portfolio Website",
-      description:
-        "A responsive portfolio website with smooth animations, dark/light mode toggle, and interactive project showcase.",
-      image:
-        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-      githubUrl: "https://github.com/yourusername/portfolio",
-      liveUrl: "https://your-portfolio.com",
-      techStack: ["React", "Tailwind CSS", "Framer Motion", "Vercel"],
+        "A tool to search and view key details of Python packages, with user authentication and data stored in PostgreSQL.",
+      image: packageinfo,
+      githubUrl: "https://github.com/Sumuk007/Python-Package-Info",
+      liveUrl: null,
+      techStack: ["FastAPI", "HTML", "Jinja2", "CSS", "PostgreSQL"],
     },
   ];
 
   return (
-    <section className="min-h-screen bg-black py-20 px-4" id="projects">
+    <section className="min-h-screen bg-black pt-20 lg:pb-25 px-4" id="projects">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

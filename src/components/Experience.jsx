@@ -7,100 +7,46 @@ const Experience = () => {
   const experienceData = [
     {
       id: 1,
-      title: "Senior Software Developer",
-      company: "Tech Solutions Inc.",
-      location: "New York, NY",
-      duration: "Jan 2022 - Present",
-      type: "Full-time",
-      description: "Led development of scalable web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+      title: "Software Engineer Intern",
+      company: "Optimum Codes",
+      location: "Udupi, India",
+      duration: "June 2025 - August 2025 (2 months)",
+      type: "Intrnship",
+      description: "Worked on building full-stack web applications using FastAPI and React. Gained hands-on experience integrating REST APIs with PostgreSQL and managing CORS communication between frontend and backend.",
       achievements: [
-        "Increased application performance by 40% through optimization",
-        "Mentored 3 junior developers",
-        "Implemented CI/CD pipelines reducing deployment time by 60%"
+        "Built core features of a mental health companion web app using React and FastAPI",
+        "Integrated FastAPI with PostgreSQL using SQLAlchemy ORM",
+        "Configured secure CORS handling for seamless API communication"
       ],
-      technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"]
+      technologies: ["React", "FastAPI", "PostgreSQL", "Tailwind CSS", "SQLAlchemy"]
     },
-    {
-      id: 2,
-      title: "Frontend Developer",
-      company: "Digital Innovations Ltd.",
-      location: "San Francisco, CA",
-      duration: "Jun 2020 - Dec 2021",
-      type: "Full-time",
-      description: "Developed responsive web applications and collaborated with UX/UI designers to create intuitive user interfaces.",
-      achievements: [
-        "Reduced page load time by 35%",
-        "Implemented responsive design for 15+ web applications",
-        "Collaborated with design team to improve user experience"
-      ],
-      technologies: ["JavaScript", "React", "CSS3", "HTML5", "Git"]
-    },
-    {
-      id: 3,
-      title: "Web Developer Intern",
-      company: "StartUp Hub",
-      location: "Austin, TX",
-      duration: "May 2019 - Aug 2019",
-      type: "Internship",
-      description: "Assisted in developing company website and learned modern web development practices.",
-      achievements: [
-        "Built 5 responsive landing pages",
-        "Learned agile development methodologies",
-        "Contributed to open source projects"
-      ],
-      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"]
-    }
   ];
 
   const educationData = [
     {
       id: 1,
-      degree: "Master of Science in Computer Science",
-      institution: "Stanford University",
-      location: "Stanford, CA",
-      duration: "2018 - 2020",
-      gpa: "3.8/4.0",
-      description: "Specialized in Software Engineering and Machine Learning with focus on web technologies and data structures.",
-      courses: [
-        "Advanced Algorithms",
-        "Machine Learning",
-        "Database Systems",
-        "Software Engineering",
-        "Computer Networks"
-      ],
-      achievements: [
-        "Dean's List for 3 consecutive semesters",
-        "Research Assistant in AI Lab",
-        "Published 2 research papers"
-      ]
+      degree: "Master of Computer Applications",
+      institution: "Manipal Institute of Technology",
+      location: "Manipal, India",
+      duration: "2024 - Present",
+      cgpa: "7.61",
+      description: "Studying core concepts of computer science with a focus on full-stack development, data structures, and machine learning. Gaining practical experience through hands-on projects and internships in modern web technologies.",
     },
     {
       id: 2,
-      degree: "Bachelor of Science in Information Technology",
-      institution: "University of California, Berkeley",
-      location: "Berkeley, CA",
-      duration: "2014 - 2018",
-      gpa: "3.6/4.0",
-      description: "Comprehensive study of computer science fundamentals with emphasis on programming and system design.",
-      courses: [
-        "Data Structures",
-        "Operating Systems",
-        "Web Development",
-        "Database Design",
-        "Computer Graphics"
-      ],
-      achievements: [
-        "Graduated Cum Laude",
-        "President of Computer Science Club",
-        "Winner of Annual Hackathon 2017"
-      ]
+      degree: "Bachelor of Computer Applications",
+      institution: "Mahatma Gandhi Memorial College",
+      location: "Udupi, India",
+      duration: "2021 - 2024",
+      cgpa: "8.68",
+      description: "Studied the fundamentals of computer science with a strong emphasis on programming, algorithms, databases, and software development. Built a solid foundation through practical assignments and academic projects.",
     }
   ];
 
   const renderExperience = () => (
     <div className="space-y-8">
       {experienceData.map((exp) => (
-        <div key={exp.id} className=" bg-white/5 backdrop-blur-md rounded-lg shadow-md p-6 border-l-6 border-blue-500 hover:shadow-lg transition-shadow duration-300">
+        <div key={exp.id} className=" bg-white/5 backdrop-blur-md rounded-4xl p-6 border-1 border-white/30 shadow-[0_4px_30px_rgba(255,255,255,0.1)] transition-shadow duration-300">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
             <div className="flex-1">
               <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
@@ -156,7 +102,7 @@ const Experience = () => {
   const renderEducation = () => (
     <div className="space-y-8">
       {educationData.map((edu) => (
-        <div key={edu.id} className="bg-white/5 backdrop-blur-md rounded-lg shadow-md p-6 border-l-6 border-green-500 hover:shadow-lg transition-shadow duration-300">
+        <div key={edu.id} className="bg-white/5 backdrop-blur-md rounded-4xl p-6 border-1 border-white/30 shadow-[0_4px_30px_rgba(255,255,255,0.1)]  duration-300">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
             <div className="flex-1">
               <h3 className="text-xl font-bold text-white mb-2">{edu.degree}</h3>
@@ -174,7 +120,7 @@ const Experience = () => {
                   <span className='text-white/85'>{edu.duration}</span>
                 </div>
                 <span className="bg-white text-black w-fit px-2 py-1 rounded-full text-xs font-medium">
-                  GPA: {edu.gpa}
+                  CGPA: {edu.cgpa}
                 </span>
               </div>
             </div>
