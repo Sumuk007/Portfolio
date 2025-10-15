@@ -8,4 +8,16 @@ export default defineConfig({
     react(), 
     tailwindcss(),
   ],
+  build: {
+    // Optimize for production
+    minify: 'terser',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+        },
+      },
+    },
+  },
 })
