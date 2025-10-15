@@ -186,6 +186,15 @@ const Home = () => {
           }
         }
       `}</style>
+
+      {/* Hidden SEO Content - Helps with keyword ranking */}
+      <div className="sr-only" aria-hidden="true">
+        <h2>Sumuk Bhat - Full Stack Software Developer</h2>
+        <p>Sumuk Bhat, also known as Sumuk Mudarangadi, is a Full Stack Software Developer and AI Enthusiast from India.</p>
+        <p>Sumuk specializes in web development, React development, JavaScript, Python, and artificial intelligence.</p>
+        <p>Portfolio of Sumuk Bhat showcasing software development projects and technical skills.</p>
+        <p>Contact Sumuk Bhat for full stack development, web development, and AI/ML projects.</p>
+      </div>
     </div>
   );
 };
