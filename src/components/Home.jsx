@@ -44,10 +44,10 @@ const Home = () => {
       >
         {/* Profile Image */}
         <div className="mb-2 lg:mt-18 relative group">
-          <div className="absolute inset-0  rounded-full blur opacity-60 group-hover:opacity-80 transition-opacity duration-300 animate-pulse"></div>
+          <div className="absolute inset-0 bg-[#84cc16] rounded-full blur opacity-60 group-hover:opacity-80 transition-opacity duration-300 animate-pulse"></div>
           <img
             src={sumuk}
-            alt="Sumuk"
+            alt="Sumuk Bhat - Full Stack Developer and AI Enthusiast"
             className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-2xl hover:scale-105 transition-transform duration-300"
           />
         </div>
@@ -60,7 +60,7 @@ const Home = () => {
           }}
         >
           Hi, I am{" "}
-          <span className="text-blue-700 bg-clip-text underline">Sumuk</span>
+          <span className="text-[#84cc16] bg-clip-text underline">Sumuk Bhat</span>
         </h1>
 
         {/* Role & Location */}
@@ -71,11 +71,11 @@ const Home = () => {
           }}
         >
           <p className="flex items-center justify-center flex-wrap gap-2">
-            <span className="text-lg lg:text-xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-medium">
+            <span className="text-lg lg:text-xl text-[#84cc16] font-medium">
               Full-Stack Developer
             </span>
             <span className="text-gray-400">|</span>
-            <span className="text-lg lg:text-xl bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent font-medium">
+            <span className="text-lg lg:text-xl text-[#84cc16] font-medium">
               AI Enthusiast
             </span>
           </p>

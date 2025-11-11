@@ -136,12 +136,12 @@ const Experience = () => {
     <section className="bg-black pb-8 min-h-screen" id='experience'>
       <div className="container mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500 bg-clip-text text-transparent">Experience & Education</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-[#84cc16]">Experience & Education</h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             My professional journey and academic background
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
+          <div className="w-24 h-1 bg-[#84cc16] mx-auto mt-6 rounded-full"></div>
         </div>
 
         {/* Tab Navigation */}

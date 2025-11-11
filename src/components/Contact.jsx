@@ -23,16 +23,16 @@ export default function Contact() {
       <div className="w-full max-w-lg">
         {/* Floating header */}
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-[#84cc16]">
             Let's Connect
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full"></div>
+          <div className="w-24 h-1 bg-[#84cc16] mx-auto mt-6 rounded-full"></div>
         </div>
 
         {/* Modern card with glassmorphism effect */}
         <div className="relative">
           {/* Glowing background effect */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400 rounded-2xl blur opacity-20"></div>
+          <div className="absolute -inset-1 bg-[#84cc16] rounded-2xl blur opacity-20"></div>
 
           <div className="relative bg-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-800/50">
             <form
@@ -51,13 +51,13 @@ export default function Contact() {
                   onChange={handleChange}
                   onFocus={() => setFocused("name")}
                   onBlur={() => setFocused("")}
-                  className="w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:border-cyan-400 transition-all duration-300 peer placeholder-transparent"
+                  className="w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:border-[#84cc16] transition-all duration-300 peer placeholder-transparent"
                   placeholder="Your name"
                 />
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none ${
                     formData.name || focused === "name"
-                      ? "-top-6 text-sm text-cyan-400"
+                      ? "-top-6 text-sm text-[#84cc16]"
                       : "top-3 text-lg text-gray-400"
                   }`}
                 >
@@ -75,13 +75,13 @@ export default function Contact() {
                   onChange={handleChange}
                   onFocus={() => setFocused("email")}
                   onBlur={() => setFocused("")}
-                  className="w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:text-white focus:border-cyan-400 transition-all duration-300 peer placeholder-transparent"
+                  className="w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:text-white focus:border-[#84cc16] transition-all duration-300 peer placeholder-transparent"
                   placeholder="your@email.com"
                 />
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none ${
                     formData.email || focused === "email"
-                      ? "-top-6 text-sm text-cyan-400"
+                      ? "-top-6 text-sm text-[#84cc16]"
                       : "top-3 text-lg text-gray-400"
                   }`}
                 >
@@ -99,13 +99,13 @@ export default function Contact() {
                   onFocus={() => setFocused("message")}
                   onBlur={() => setFocused("")}
                   rows="4"
-                  className="overflow-auto scrollbar-hide w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:border-cyan-400 transition-all duration-300 resize-none placeholder-transparent"
+                  className="overflow-auto scrollbar-hide w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:border-[#84cc16] transition-all duration-300 resize-none placeholder-transparent"
                   placeholder="Your message..."
                 />
                 <label
                   className={`absolute left-0 transition-all duration-300 pointer-events-none ${
                     formData.message || focused === "message"
-                      ? "-top-6 text-sm text-cyan-400"
+                      ? "-top-6 text-sm text-[#84cc16]"
                       : "top-3 text-lg text-gray-400"
                   }`}
                 >
@@ -117,7 +117,7 @@ export default function Contact() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="group relative w-full overflow-hidden bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500 text-white font-medium py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 hover:-translate-y-1 active:translate-y-0.5"
+                  className="group relative w-full overflow-hidden bg-[#84cc16] text-black font-medium py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-[#84cc16]/50 transition-all duration-300 hover:-translate-y-1 active:translate-y-0.5"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     Send Message
