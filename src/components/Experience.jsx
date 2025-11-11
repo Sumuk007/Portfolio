@@ -63,7 +63,7 @@ const Experience = () => {
                   <Calendar className="w-4 h-4 mr-1 text-white/85" />
                   <span className='text-white/85'>{exp.duration}</span>
                 </div>
-                <span className="bg-white w-fit text-black/85 px-2 py-1 rounded-full text-xs font-medium">
+                <span className="bg-[#84cc16]/20  w-fit text-[#84cc16] px-2 py-1 rounded-full text-xs font-medium">
                   {exp.type}
                 </span>
               </div>
@@ -88,7 +88,7 @@ const Experience = () => {
             <h4 className="font-semibold text-white/85 mb-2 ">Technologies:</h4>
             <div className="flex flex-wrap gap-2">
               {exp.technologies.map((tech, index) => (
-                <span key={index} className="bg-gray-50 text-black px-3 py-1 rounded-full text-sm">
+                <span key={index} className="bg-gray-900 text-white/85 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-[#84cc16] transition-colors duration-300">
                   {tech}
                 </span>
               ))}
@@ -119,7 +119,7 @@ const Experience = () => {
                   <Calendar className="w-4 h-4 mr-1 text-white/85" />
                   <span className='text-white/85'>{edu.duration}</span>
                 </div>
-                <span className="bg-white text-black w-fit px-2 py-1 rounded-full text-xs font-medium">
+                <span className="bg-[#84cc16]/20 text-[#84cc16] w-fit px-2 py-1 rounded-full text-xs font-medium">
                   CGPA: {edu.cgpa}
                 </span>
               </div>

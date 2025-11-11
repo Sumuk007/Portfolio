@@ -53,15 +53,15 @@ const Home = () => {
         </div>
 
         {/* Name */}
-        <h1
-          className="text-4xl sm:text-6xl font-bold text-white mb-4 text-center"
+        <p
+          className="text-4xl sm:text-6xl font-bold text-white/90 mb-4 text-center"
           style={{
             animation: "fadeInUp 1s ease-out 0.2s both",
           }}
         >
           Hi, I am{" "}
-          <span className="text-[#84cc16] bg-clip-text underline">Sumuk Bhat</span>
-        </h1>
+          <span className="text-white/70 bg-clip-text underline hover:text-white transition-colors duration-300">Sumuk Bhat</span>
+        </p>
 
         {/* Role & Location */}
         <div

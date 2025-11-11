@@ -21,7 +21,8 @@ const Skills = () => {
   const techStacks = [
     {
       category: "Frontend",
-      color: "text-blue-600 border-blue-300 text-center",
+      color: "text-[#60a5fa] border-[#60a5fa]/30 text-center",
+      bgColor: "bg-[#60a5fa]/5",
       techs: [
         { name: "React", src: reacticon },
         { name: "JavaScript", src: jsicon },
@@ -33,7 +34,8 @@ const Skills = () => {
     },
     {
       category: "Backend",
-      color: "text-green-600 border-green-300 text-center",
+      color: "text-[#34d399] border-[#34d399]/30 text-center",
+      bgColor: "bg-[#34d399]/5",
       techs: [
         { name: "Python", src: pythonicon },
         { name: "Django", src: djangoicon },
@@ -43,7 +45,8 @@ const Skills = () => {
     },
     {
       category: "Database",
-      color: "text-purple-600 border-purple-300 text-center",
+      color: "text-[#c084fc] border-[#c084fc]/30 text-center",
+      bgColor: "bg-[#c084fc]/5",
       techs: [
         { name: "PostgreSQL", src: postgresqlicon },
         { name: "MySQL", src: mysqlicon },
@@ -52,13 +55,14 @@ const Skills = () => {
     },
     {
       category: "Programming Languages",
-      color: "text-orange-600 border-orange-300 text-center",
+      color: "text-[#fb923c] border-[#fb923c]/30 text-center",
+      bgColor: "bg-[#fb923c]/5",
       techs: [
         { name: "C", src: cicon },
         { name: "C++", src: cppicon },
         { name: "Java", src: javaicon },
         { name: "Python", src: pythonicon },
-        { name: "R", src: ricon },
+        // { name: "R", src: ricon },
       ],
     },
   ];
@@ -120,7 +124,7 @@ const Skills = () => {
                   <a
                     key={tech.name}
                     rel="noopener noreferrer"
-                    className="group relative flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg border border-gray-200 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md"
+                    className={`group relative flex items-center gap-2 ${stack.bgColor} px-4 py-2 rounded-lg border border-white/40 ${stack.color.replace('text-', 'border-').split(' ')[0].replace('text-', 'border-')} shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md`}
                   >
                     <div className="flex items-center gap-2">
                       <img
@@ -129,7 +133,7 @@ const Skills = () => {
                         className="w-5 h-5 flex-shrink-0"
                         onError={handleImageError}
                       />
-                      <span className="text-sm font-medium text-gray-700 whitespace-nowrap antialiased transition-colors duration-200 group-hover:text-black">
+                      <span className="text-sm font-medium text-white/90 whitespace-nowrap antialiased transition-colors duration-200">
                         {tech.name}
                       </span>
                     </div>
