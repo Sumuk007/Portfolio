@@ -3,6 +3,7 @@ import { Github, ExternalLink, Code, Laptop } from "lucide-react";
 import ai_resume from "../assets/projects/ai_resume_analyzer.png";
 import reelninja from "../assets/projects/reelninja.png";
 import packageinfo from "../assets/projects/package_info.png";
+import slcm from "../assets/projects/slcm.jpg";
 
 
 const Projects = () => {
@@ -12,6 +13,16 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: "Student Lifecycle Management System(SLCM)",
+      description:
+        "SLCM – Android app built with Java and Firebase to manage attendance, assignments, timetables, and communication among students, faculty, and admins. Developed as a final year team project.",
+      image: slcm,
+      githubUrl: "https://github.com/Sumuk007/Attendance_System",
+      liveUrl: null,
+      techStack: ["Android SDK", "Java", "Firebase", "XML"],
+    },
+    {
+      id: 2,
       title: "AI Resume Analyzer",
       description:
         "An AI tool that reviews resumes against job descriptions, scores them out of 100, and suggests key improvements to boost job relevance.",
@@ -21,7 +32,7 @@ const Projects = () => {
       techStack: ["React", "FastAPI", "Gemini API", "Axios", "Tailwind CSS"],
     },
     {
-      id: 2,
+      id: 3,
       title: "ReelNinja - Instagram Reel Downloader",
       description:
         "A tool to download Instagram Reels or extract audio quickly and easily using just the reel URL.",
@@ -31,7 +42,7 @@ const Projects = () => {
       techStack: ["Django","Python", "HTML", "CSS", "Bootstrap"],
     },
     {
-      id: 3,
+      id: 4,
       title: "Python Package Info Viewer",
       description:
         "A tool to search and view key details of Python packages, with user authentication and data stored in PostgreSQL.",
@@ -122,7 +133,7 @@ const Projects = () => {
                 </h3>
 
                 {/* Project Description */}
-                <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+                <p className="text-gray-300 text-sm leading-relaxed line-clamp-4">
                   {project.description}
                 </p>
 
