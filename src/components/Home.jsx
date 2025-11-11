@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import sumuk from '../assets/sumuk.png'; // Replace with your actual image path
 import {Github, Linkedin, Twitter, Mail, Download, MapPin,} from "lucide-react";
 
 const Home = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
   const socialLinks = [
     { icon: Github, href: "https://github.com/Sumuk007", label: "GitHub" },
     {
@@ -20,30 +18,35 @@ const Home = () => {
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30" />
       {/* Floating particles animation */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-3 h-3 bg-white rounded-full opacity-20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${
-                10 + Math.random() * 10
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(50)].map((_, i) => {
+          const randomX = Math.random() * 100;
+          const randomY = Math.random() * 100;
+          
+          return (
+            <div
+              key={i}
+              className="absolute bg-white rounded-full opacity-20"
+              style={{
+                left: `${randomX}%`,
+                top: `${randomY}%`,
+                width: `10px`,
+                height: `10px`,
+                animation: `float ${10 + Math.random() * 10}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Main Content */}
       <div
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4"
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pointer-events-none"
         id="home"
       >
         {/* Profile Image */}
-        <div className="mb-2 lg:mt-18 relative group">
+        <div className="mb-2 lg:mt-18 relative group pointer-events-auto">
           <div className="absolute inset-0 bg-[#84cc16] rounded-full blur opacity-60 group-hover:opacity-80 transition-opacity duration-300 animate-pulse"></div>
           <img
             src={sumuk}
@@ -87,7 +90,7 @@ const Home = () => {
 
         {/* Social Links */}
         <div
-          className="flex gap-6 mb-4"
+          className="flex gap-6 mb-4 pointer-events-auto"
           style={{
             animation: "fadeInUp 1s ease-out 0.6s both",
           }}
@@ -122,7 +125,7 @@ const Home = () => {
           href="https://drive.google.com/drive/folders/1MDyDxm9jZFnA3pvD1dsU6qN0HrUyMns6?usp=sharing"
           download={true}
           target="_blank"
-          className="group relative mb-30 lg:mb-0 overflow-hidden bg-white/8 backdrop-blur-sm hover:bg-white/15 text-white font-medium px-5 py-2.5 rounded-lg border border-white/15 hover:border-white/30 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          className="group relative mb-30 lg:mb-0 overflow-hidden bg-white/8 backdrop-blur-sm hover:bg-white/15 text-white font-medium px-5 py-2.5 rounded-lg border border-white/15 hover:border-white/30 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl pointer-events-auto"
           style={{
             animation: "fadeInUp 1s ease-out 0.8s both",
           }}
