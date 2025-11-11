@@ -56,7 +56,7 @@ const Navbar = () => {
                     href={item.href}
                     className={`flex items-center justify-center md:space-x-2 px-3 md:px-6 py-2 md:py-3 rounded-full transition-all duration-300 ${
                       isActive 
-                        ? 'bg-white/20 text-white shadow-lg' 
+                        ? 'bg-[#84cc16]/70 text-white shadow-lg' 
                         : 'text-white/70 hover:text-white hover:bg-white/10'
                     }`}
                     style={{
