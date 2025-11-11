@@ -17,7 +17,7 @@ export default function Contact() {
 
   return (
     <div
-      className="bg-black min-h-screen flex items-center-safe justify-center px-5 pb-0 md:pb-20"
+      className="bg-black flex justify-center px-5 pb-8 md:min-h-screen "
       id="contact"
     >
       <div className="w-full max-w-lg">

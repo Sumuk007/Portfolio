@@ -41,20 +41,20 @@ const Projects = () => {
       liveUrl: "https://reelninja.onrender.com/",
       techStack: ["Django","Python", "HTML", "CSS", "Bootstrap"],
     },
-    {
-      id: 4,
-      title: "Python Package Info Viewer",
-      description:
-        "A tool to search and view key details of Python packages, with user authentication and data stored in PostgreSQL.",
-      image: packageinfo,
-      githubUrl: "https://github.com/Sumuk007/Python-Package-Info",
-      liveUrl: null,
-      techStack: ["FastAPI", "HTML", "Jinja2", "CSS", "PostgreSQL"],
-    },
+    // {
+    //   id: 4,
+    //   title: "Python Package Info Viewer",
+    //   description:
+    //     "A tool to search and view key details of Python packages, with user authentication and data stored in PostgreSQL.",
+    //   image: packageinfo,
+    //   githubUrl: "https://github.com/Sumuk007/Python-Package-Info",
+    //   liveUrl: null,
+    //   techStack: ["FastAPI", "HTML", "Jinja2", "CSS", "PostgreSQL"],
+    // },
   ];
 
   return (
-    <section className="min-h-screen bg-black pt-20 lg:pb-25 px-4" id="projects">
+    <section className="min-h-screen bg-black px-4 pb-8 md:pb-0" id="projects">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

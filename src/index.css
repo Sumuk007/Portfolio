@@ -3,6 +3,14 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Mobile: accounts for navbar + spacing */
+}
+
+/* Adjust scroll padding for larger screens */
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 80px; /* Desktop: slightly less padding needed */
+  }
 }
 
 input:-webkit-autofill,

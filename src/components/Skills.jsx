@@ -89,7 +89,7 @@ const Skills = () => {
   };
 
   return (
-    <section className="py-12 bg-black" id="skills">
+    <section className="bg-black pb-8" id="skills">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10">

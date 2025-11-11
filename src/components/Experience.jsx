@@ -11,7 +11,7 @@ const Experience = () => {
       company: "Optimum Codes",
       location: "Udupi, India",
       duration: "June 2025 - August 2025 (2 months)",
-      type: "Intrnship",
+      type: "Internship",
       description: "Worked on building full-stack web applications using FastAPI and React. Gained hands-on experience integrating REST APIs with PostgreSQL and managing CORS communication between frontend and backend.",
       achievements: [
         "Built core features of a mental health companion web app using React and FastAPI",
@@ -133,7 +133,7 @@ const Experience = () => {
   );
 
   return (
-    <section className="py-16 bg-black pt-2 min-h-screen" id='experience'>
+    <section className="bg-black pb-8 min-h-screen" id='experience'>
       <div className="container mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
