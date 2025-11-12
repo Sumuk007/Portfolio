@@ -1,8 +1,11 @@
 import React from "react";
-import sumuk from '../assets/sumuk.png'; // Replace with your actual image path
+import sumuk from '../assets/sumuk.webp'; // Replace with your actual image path
 import {Github, Linkedin, Twitter, Mail, Download, MapPin,} from "lucide-react";
 
 const Home = () => {
+  // Reduce particles on mobile for better performance
+  const particleCount = typeof window !== 'undefined' && window.innerWidth < 768 ? 25 : 30;
+  
   const socialLinks = [
     { icon: Github, href: "https://github.com/Sumuk007", label: "GitHub" },
     {
@@ -19,7 +22,7 @@ const Home = () => {
       <div className="absolute inset-0 opacity-30" />
       {/* Floating particles animation */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => {
+        {[...Array(particleCount)].map((_, i) => {
           const randomX = Math.random() * 100;
           const randomY = Math.random() * 100;
           
@@ -51,7 +54,8 @@ const Home = () => {
           <img
             src={sumuk}
             alt="Sumuk Bhat - Full Stack Developer and AI Enthusiast"
-            className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-2xl hover:scale-105 transition-transform duration-300"
+            loading="eager"
+            className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover bg-black shadow-2xl hover:scale-105 transition-transform duration-300"
           />
         </div>
 

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Github, ExternalLink, Code, Laptop } from "lucide-react";
-import ai_resume from "../assets/projects/ai_resume_analyzer.png";
-import reelninja from "../assets/projects/reelninja.png";
-import packageinfo from "../assets/projects/package_info.png";
-import slcm from "../assets/projects/slcm.jpg";
+import ai_resume from "../assets/projects/ai_resume_analyzer.webp";
+import reelninja from "../assets/projects/reelninja.webp";
+import packageinfo from "../assets/projects/package_info.webp";
+import slcm from "../assets/projects/slcm.webp";
 
 
 const Projects = () => {
@@ -86,6 +86,8 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 

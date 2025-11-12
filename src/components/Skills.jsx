@@ -130,6 +130,8 @@ const Skills = () => {
                       <img
                         src={tech.src}
                         alt={tech.name}
+                        loading="lazy"
+                        decoding="async"
                         className="w-5 h-5 flex-shrink-0"
                         onError={handleImageError}
                       />
