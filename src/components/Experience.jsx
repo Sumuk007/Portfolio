@@ -20,6 +20,26 @@ const Experience = () => {
       ],
       technologies: ["React", "FastAPI", "PostgreSQL", "Tailwind CSS", "SQLAlchemy"]
     },
+
+    {
+  id: 2,
+  title: "Custom Software Engineer",
+  company: "Accenture",
+  location: "Bengaluru, India",
+  duration: "December 2025 - May 2026 (5 months)",
+  type: "Internship",
+  description: "Worked as an intern in the SAP Testing domain on an enterprise ERP project. Participated in software testing activities, defect validation, and quality assurance while collaborating with experienced professionals in an Agile environment.",
+  achievements: [
+    "Performed functional testing for SAP ERP modules",
+    "Executed and validated test cases to ensure application quality",
+    "Collaborated with team members to support quality assurance activities"
+  ],
+  technologies: [
+    "SAP",
+    "Tosca",
+    "UFT",
+  ]
+}
   ];
 
   const educationData = [
@@ -28,7 +48,7 @@ const Experience = () => {
       degree: "Master of Computer Applications",
       institution: "Manipal Institute of Technology",
       location: "Manipal, India",
-      duration: "2024 - Present",
+      duration: "2024 - 2026",
       cgpa: "7.61",
       description: "Studying core concepts of computer science with a focus on full-stack development, data structures, and machine learning. Gaining practical experience through hands-on projects and internships in modern web technologies.",
     },
@@ -119,9 +139,9 @@ const Experience = () => {
                   <Calendar className="w-4 h-4 mr-1 text-white/85" />
                   <span className='text-white/85'>{edu.duration}</span>
                 </div>
-                <span className="bg-[#84cc16]/20 text-[#84cc16] w-fit px-2 py-1 rounded-full text-xs font-medium">
+                {/* <span className="bg-[#84cc16]/20 text-[#84cc16] w-fit px-2 py-1 rounded-full text-xs font-medium">
                   CGPA: {edu.cgpa}
-                </span>
+                </span> */}
               </div>
             </div>
           </div>

@@ -16,6 +16,8 @@ import cicon from "../assets/icons/c.svg";
 import cppicon from "../assets/icons/cpp.svg";
 import ricon from "../assets/icons/r.svg";
 import javaicon from "../assets/icons/java.svg";
+import fluttericon from "../assets/icons/flutter.svg";
+import darticon from "../assets/icons/dart.svg";
 
 const Skills = () => {
   const techStacks = [
@@ -25,6 +27,7 @@ const Skills = () => {
       bgColor: "bg-[#60a5fa]/5",
       techs: [
         { name: "React", src: reacticon },
+        { name: "Flutter", src: fluttericon },
         { name: "JavaScript", src: jsicon },
         { name: "HTML5", src: htmlicon },
         { name: "CSS3", src: cssicon },
@@ -62,6 +65,7 @@ const Skills = () => {
         { name: "C++", src: cppicon },
         { name: "Java", src: javaicon },
         { name: "Python", src: pythonicon },
+        { name: "Dart", src: darticon },
         // { name: "R", src: ricon },
       ],
     },

@@ -4,6 +4,8 @@ import ai_resume from "../assets/projects/ai_resume_analyzer.webp";
 import reelninja from "../assets/projects/reelninja.webp";
 import packageinfo from "../assets/projects/package_info.webp";
 import slcm from "../assets/projects/slcm.webp";
+import facestudio from "../assets/projects/facestudio.png";
+import quietly from "../assets/projects/quietly.png";
 
 
 const Projects = () => {
@@ -13,6 +15,40 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: "Face Studio - Face Shape AI",
+      description:
+        "An AI-powered Flutter application that scans a user's face in real time to identify their face shape and provides personalized hairstyle recommendations for different face types.",
+      image: facestudio,
+      githubUrl: null,
+      liveUrl: "https://play.google.com/store/apps/details?id=com.viper.facestudio",
+      techStack: [
+        "Flutter",
+        "Dart",
+        "Google ML Kit",
+        "Google AdMob",
+        "RevenueCat"
+      ],
+    },
+
+    {
+      id: 2,
+      title: "Quietly: Sleep & White Noise",
+      description:
+        "A Flutter-based sleep and relaxation app featuring calming nature sounds and ambient audio to help users sleep, meditate, and improve focus. Includes offline playback, customizable sound mixing, and premium content.",
+      image: quietly,
+      githubUrl: null,
+      liveUrl: "https://play.google.com/store/apps/details?id=com.viper.sleepsounds",
+      techStack: [
+        "Flutter",
+        "Dart",
+        "Google AdMob",
+        "RevenueCat",
+        "SharedPreferences"
+      ],
+    },
+
+    {
+      id: 3,
       title: "Student Lifecycle Management System(SLCM)",
       description:
         "SLCM – Android app built with Java and Firebase to manage attendance, assignments, timetables, and communication among students, faculty, and admins. Developed as a final year team project.",
@@ -22,7 +58,7 @@ const Projects = () => {
       techStack: ["Android SDK", "Java", "Firebase", "XML"],
     },
     {
-      id: 2,
+      id: 4,
       title: "AI Resume Analyzer",
       description:
         "An AI tool that reviews resumes against job descriptions, scores them out of 100, and suggests key improvements to boost job relevance.",
@@ -32,25 +68,15 @@ const Projects = () => {
       techStack: ["React", "FastAPI", "Gemini API", "Axios", "Tailwind CSS"],
     },
     {
-      id: 3,
+      id: 5,
       title: "ReelNinja - Instagram Reel Downloader",
       description:
         "A tool to download Instagram Reels or extract audio quickly and easily using just the reel URL.",
       image: reelninja,
       githubUrl: "https://github.com/Sumuk007/ReelNinja",
       liveUrl: "https://reelninja.onrender.com/",
-      techStack: ["Django","Python", "HTML", "CSS", "Bootstrap"],
+      techStack: ["Django", "Python", "HTML", "CSS", "Bootstrap"],
     },
-    // {
-    //   id: 4,
-    //   title: "Python Package Info Viewer",
-    //   description:
-    //     "A tool to search and view key details of Python packages, with user authentication and data stored in PostgreSQL.",
-    //   image: packageinfo,
-    //   githubUrl: "https://github.com/Sumuk007/Python-Package-Info",
-    //   liveUrl: null,
-    //   techStack: ["FastAPI", "HTML", "Jinja2", "CSS", "PostgreSQL"],
-    // },
   ];
 
   return (
@@ -72,9 +98,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`group border-none relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl  ${
-                index % 2 === 0 ? "animate-fadeInUp" : "animate-fadeInUp"
-              }`}
+              className={`group border-none relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl  ${index % 2 === 0 ? "animate-fadeInUp" : "animate-fadeInUp"
+                }`}
               style={{
                 animationDelay: `${index * 0.1}s`,
               }}
@@ -93,22 +118,23 @@ const Projects = () => {
 
                 {/* Overlay with Action Buttons */}
                 <div
-                  className={`absolute inset-0 bg-black/80 flex items-center justify-center space-x-6 transition-all duration-300 ${
-                    hoveredProject === project.id ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`absolute inset-0 bg-black/80 flex items-center justify-center space-x-6 transition-all duration-300 ${hoveredProject === project.id ? "opacity-100" : "opacity-0"
+                    }`}
                 >
                   {/* GitHub Button */}
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/btn relative p-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full border border-gray-600 hover:border-[#84cc16] transition-all duration-300 hover:scale-110"
-                  >
-                    <Github className="w-6 h-6 text-white group-hover/btn:text-[#84cc16] transition-colors duration-300" />
-                    <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-sm opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
-                      Code
-                    </span>
-                  </a>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn relative p-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full border border-gray-600 hover:border-[#84cc16] transition-all duration-300 hover:scale-110"
+                    >
+                      <Github className="w-6 h-6 text-white group-hover/btn:text-[#84cc16] transition-colors duration-300" />
+                      <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-sm opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                        Code
+                      </span>
+                    </a>
+                  )}
 
                   {/* Live Demo Button */}
                   {project.liveUrl && (

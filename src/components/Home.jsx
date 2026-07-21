@@ -1,5 +1,5 @@
 import React from "react";
-import sumuk from '../assets/sumuk.webp'; // Replace with your actual image path
+import sumuk from '../assets/sumuk_logo.jpg'; // Replace with your actual image path
 import {Github, Linkedin, Twitter, Mail, Download, MapPin,} from "lucide-react";
 
 const Home = () => {
@@ -50,24 +50,24 @@ const Home = () => {
       >
         {/* Profile Image */}
         <div className="mb-2 lg:mt-18 relative group pointer-events-auto">
-          <div className="absolute inset-0 bg-[#84cc16] rounded-full blur opacity-60 group-hover:opacity-80 transition-opacity duration-300 animate-pulse"></div>
+          <div className="absolute rounded-full"></div>
           <img
             src={sumuk}
             alt="Sumuk Bhat - Full Stack Developer and AI Enthusiast"
             loading="eager"
-            className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover bg-black shadow-2xl hover:scale-105 transition-transform duration-300"
+            className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover bg-black shadow-2xl hover:scale-105 duration-300"
           />
         </div>
 
         {/* Name */}
         <p
-          className="text-4xl sm:text-6xl font-bold text-white/90 mb-4 text-center"
+          className="text-4xl sm:text-6xl font-bold text-white/70 mb-4 text-center"
           style={{
             animation: "fadeInUp 1s ease-out 0.2s both",
           }}
         >
           Hi, I am{" "}
-          <span className="text-white/70 bg-clip-text underline hover:text-white transition-colors duration-300">Sumuk Bhat</span>
+          <span className="text-white/90 bg-clip-text underline hover:text-white transition-colors duration-300">Sumuk Bhat</span>
         </p>
 
         {/* Role & Location */}
@@ -79,8 +79,10 @@ const Home = () => {
         >
           <p className="flex items-center justify-center flex-wrap gap-2">
             <span className="text-lg lg:text-xl text-[#84cc16] font-medium">
-              Full-Stack Developer
+              Full-Stack Web Developer
             </span>
+            <span className="text-gray-400">|</span>
+            <span className="text-lg lg:text-xl text-[#84cc16] font-medium">Flutter Developer</span>
             <span className="text-gray-400">|</span>
             <span className="text-lg lg:text-xl text-[#84cc16] font-medium">
               AI Enthusiast
