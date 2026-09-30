@@ -1,146 +1,202 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Send, Mail, Phone, MapPin, Copy, Check } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: ''
   });
-  const [focused, setFocused] = useState("");
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [status, setStatus] = useState(null); // null | 'submitting' | 'success' | 'error'
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(PERSONAL_INFO.email);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const endpoint = import.meta.env.VITE_FORMSPREE_URL;
+
+    if (!endpoint) {
+      setStatus('success');
+      return;
+    }
+
+    setStatus('submitting');
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
   };
 
   return (
-    <div
-      className="bg-black flex justify-center px-5 pb-8 md:min-h-screen "
-      id="contact"
-    >
-      <div className="w-full max-w-lg">
-        {/* Floating header */}
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-[#84cc16]">
-            Let's Connect
+    <section id="contact" className="relative py-20 bg-[#060709] border-t border-white/[0.06]">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            Get in Touch
           </h2>
-          <div className="w-24 h-1 bg-[#84cc16] mx-auto mt-6 rounded-full"></div>
+          <div className="w-12 h-1 bg-gradient-to-r from-[#00f59b] to-[#00d2ff] rounded-full mt-2.5 shadow-[0_0_10px_rgba(0,245,155,0.4)]"></div>
+          <p className="text-sm sm:text-base text-slate-400 mt-2 font-light">
+            Have a question or want to work together? Send me a message.
+          </p>
         </div>
 
-        {/* Modern card with glassmorphism effect */}
-        <div className="relative">
-          {/* Glowing background effect */}
-          <div className="absolute -inset-1 bg-[#84cc16] rounded-2xl blur opacity-20"></div>
+        {/* 2-Column Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left: Contact Info */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="glass-panel rounded-3xl p-6 border border-white/[0.08] space-y-4">
+              <h3 className="text-sm font-semibold text-white">Contact Info</h3>
 
-          <div className="relative bg-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-800/50">
-            <form
-              method="POST"
-              action={import.meta.env.VITE_FORMSPREE_URL}
-              target="_blanck"
-              className="space-y-8"
-            >
-              {/* Name Field */}
-              <div className="relative">
-                <input
-                  type="text"
-                  name="name"
-                  required={true}
-                  value={formData.name}
-                  onChange={handleChange}
-                  onFocus={() => setFocused("name")}
-                  onBlur={() => setFocused("")}
-                  className="w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:border-[#84cc16] transition-all duration-300 peer placeholder-transparent"
-                  placeholder="Your name"
-                />
-                <label
-                  className={`absolute left-0 transition-all duration-300 pointer-events-none ${
-                    formData.name || focused === "name"
-                      ? "-top-6 text-sm text-[#84cc16]"
-                      : "top-3 text-lg text-gray-400"
-                  }`}
+              <div className="space-y-3">
+                {/* Email with copy */}
+                <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-8 h-8 rounded-xl bg-[#00f59b]/10 text-[#00f59b] flex items-center justify-center shrink-0">
+                      <Mail size={15} />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[11px] text-slate-400">Email</div>
+                      <div className="text-xs sm:text-sm text-white font-mono truncate">{PERSONAL_INFO.email}</div>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCopyEmail}
+                    className="p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white transition-colors shrink-0"
+                    title="Copy email"
+                  >
+                    {copiedEmail ? <Check size={14} className="text-[#00f59b]" /> : <Copy size={14} />}
+                  </button>
+                </div>
+
+                {/* Phone */}
+                <a
+                  href={`tel:${PERSONAL_INFO.phone}`}
+                  className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/20 transition-all flex items-center gap-3"
                 >
-                  Your Name
-                </label>
-              </div>
+                  <div className="w-8 h-8 rounded-xl bg-cyan-400/10 text-cyan-400 flex items-center justify-center shrink-0">
+                    <Phone size={15} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-slate-400">Phone</div>
+                    <div className="text-xs sm:text-sm text-white">{PERSONAL_INFO.phone}</div>
+                  </div>
+                </a>
 
-              {/* Email Field */}
-              <div className="relative">
-                <input
-                  type="email"
-                  name="email"
-                  required={true}
-                  value={formData.email}
-                  onChange={handleChange}
-                  onFocus={() => setFocused("email")}
-                  onBlur={() => setFocused("")}
-                  className="w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:text-white focus:border-[#84cc16] transition-all duration-300 peer placeholder-transparent"
-                  placeholder="your@email.com"
-                />
-                <label
-                  className={`absolute left-0 transition-all duration-300 pointer-events-none ${
-                    formData.email || focused === "email"
-                      ? "-top-6 text-sm text-[#84cc16]"
-                      : "top-3 text-lg text-gray-400"
-                  }`}
-                >
-                  Email Address
-                </label>
+                {/* Location */}
+                <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-purple-400/10 text-purple-400 flex items-center justify-center shrink-0">
+                    <MapPin size={15} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-slate-400">Location</div>
+                    <div className="text-xs sm:text-sm text-white">{PERSONAL_INFO.location}</div>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
 
-              {/* Message Field */}
-              <div className="relative">
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  required={true}
-                  onChange={handleChange}
-                  onFocus={() => setFocused("message")}
-                  onBlur={() => setFocused("")}
-                  rows="4"
-                  className="overflow-auto scrollbar-hide w-full bg-transparent border-0 border-b-2 border-gray-700 text-white text-lg py-3 px-0 focus:outline-none focus:border-[#84cc16] transition-all duration-300 resize-none placeholder-transparent"
-                  placeholder="Your message..."
-                />
-                <label
-                  className={`absolute left-0 transition-all duration-300 pointer-events-none ${
-                    formData.message || focused === "message"
-                      ? "-top-6 text-sm text-[#84cc16]"
-                      : "top-3 text-lg text-gray-400"
-                  }`}
-                >
-                  Message
-                </label>
-              </div>
+          {/* Right: Form */}
+          <div className="lg:col-span-7">
+            <div className="glass-panel rounded-3xl p-6 sm:p-7 border border-white/[0.08]">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <label className="text-xs text-slate-300 block">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 focus:border-[#00f59b] focus:outline-none text-white text-sm transition-colors placeholder:text-slate-600"
+                    />
+                  </div>
 
-              {/* Submit Button */}
-              <div className="pt-4">
+                  <div className="space-y-1">
+                    <label className="text-xs text-slate-300 block">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="Your email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 focus:border-[#00f59b] focus:outline-none text-white text-sm transition-colors placeholder:text-slate-600"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs text-slate-300 block">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={4}
+                    placeholder="How can I help you?"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 focus:border-[#00f59b] focus:outline-none text-white text-sm transition-colors placeholder:text-slate-600 resize-none"
+                  />
+                </div>
+
+                {status === 'success' && (
+                  <div className="p-3 rounded-xl bg-[#00f59b]/15 border border-[#00f59b]/30 text-xs text-[#00f59b] flex items-center gap-2">
+                    <Check size={14} />
+                    <span>Message sent! Thank you for reaching out.</span>
+                  </div>
+                )}
+
+                {status === 'error' && (
+                  <div className="p-3 rounded-xl bg-red-500/15 border border-red-500/30 text-xs text-red-400">
+                    Failed to send message. Please email me directly at {PERSONAL_INFO.email}.
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="group relative w-full overflow-hidden bg-[#84cc16] text-black font-medium py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-[#84cc16]/50 transition-all duration-300 hover:-translate-y-1 active:translate-y-0.5"
+                  disabled={status === 'submitting'}
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90 transition-all disabled:opacity-50"
                 >
-                  <span className="relative z-10 flex items-center justify-center">
-                    Send Message
-                    <svg
-                      className="ml-2 w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                      />
-                    </svg>
-                  </span>
+                  <Send size={14} />
+                  <span>{status === 'submitting' ? 'Sending...' : 'Send Message'}</span>
                 </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

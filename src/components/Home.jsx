@@ -1,211 +1,90 @@
-import React from "react";
-import sumuk from '../assets/sumuk_logo.jpg'; // Replace with your actual image path
-import {Github, Linkedin, Twitter, Mail, Download, MapPin,} from "lucide-react";
+import React from 'react';
+import { 
+  ArrowRight, 
+  MapPin, 
+  Linkedin, 
+  Mail 
+} from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
-const Home = () => {
-  // Reduce particles on mobile for better performance
-  const particleCount = typeof window !== 'undefined' && window.innerWidth < 768 ? 25 : 30;
-  
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/Sumuk007", label: "GitHub" },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/in/sumuk/",
-      label: "LinkedIn",
-    },
-    { icon: Mail, href: "mailto:sumukbhat007@gmail.com", label: "Email" },
-  ];
-
+export default function Home() {
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden" id="home">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-30" />
-      {/* Floating particles animation */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(particleCount)].map((_, i) => {
-          const randomX = Math.random() * 100;
-          const randomY = Math.random() * 100;
-          
-          return (
-            <div
-              key={i}
-              className="absolute bg-white rounded-full opacity-20"
-              style={{
-                left: `${randomX}%`,
-                top: `${randomY}%`,
-                width: `10px`,
-                height: `10px`,
-                animation: `float ${10 + Math.random() * 10}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 5}s`,
-              }}
-            />
-          );
-        })}
-      </div>
+    <section 
+      id="home" 
+      className="relative min-h-[100dvh] pt-24 pb-16 md:pt-28 md:pb-20 flex flex-col justify-center overflow-hidden bg-[#060709]"
+    >
+      {/* Subtle Background Mesh */}
+      <div className="absolute inset-0 bg-grid-mesh opacity-25 pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-gradient-to-tr from-[#00f59b]/10 via-[#00d2ff]/10 to-transparent blur-[120px] rounded-full pointer-events-none" />
 
-      {/* Main Content */}
-      <div
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pointer-events-none"
-        id="home"
-      >
-        {/* Profile Image */}
-        <div className="mb-2 lg:mt-18 relative group pointer-events-auto">
-          <div className="absolute rounded-full"></div>
-          <img
-            src={sumuk}
-            alt="Sumuk Bhat - Full Stack Developer and AI Enthusiast"
-            loading="eager"
-            className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover bg-black shadow-2xl hover:scale-105 duration-300"
-          />
-        </div>
-
-        {/* Name */}
-        <p
-          className="text-4xl sm:text-6xl font-bold text-white/70 mb-4 text-center"
-          style={{
-            animation: "fadeInUp 1s ease-out 0.2s both",
-          }}
-        >
-          Hi, I am{" "}
-          <span className="text-white/90 bg-clip-text underline hover:text-white transition-colors duration-300">Sumuk Bhat</span>
-        </p>
-
-        {/* Role & Location */}
-        <div
-          className="text-lg lg:text-xl text-gray-300 text-center space-y-2 mb-6"
-          style={{
-            animation: "fadeInUp 1s ease-out 0.4s both",
-          }}
-        >
-          <p className="flex items-center justify-center flex-wrap gap-2">
-            <span className="text-lg lg:text-xl text-[#84cc16] font-medium">
-              Full-Stack Web Developer
-            </span>
-            <span className="text-gray-400">|</span>
-            <span className="text-lg lg:text-xl text-[#84cc16] font-medium">Flutter Developer</span>
-            <span className="text-gray-400">|</span>
-            <span className="text-lg lg:text-xl text-[#84cc16] font-medium">
-              AI Enthusiast
-            </span>
-          </p>
-          <p className="flex items-center justify-center gap-2 text-gray-400">
-            <MapPin size={15} />
-            <span className="text-sm">Based in India</span>
-          </p>
-        </div>
-
-        {/* Social Links */}
-        <div
-          className="flex gap-6 mb-4 pointer-events-auto"
-          style={{
-            animation: "fadeInUp 1s ease-out 0.6s both",
-          }}
-        >
-          {socialLinks.map((social, index) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative p-3 mb-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-110"
-              style={{
-                animation: `slideInScale 0.8s ease-out ${
-                  0.7 + index * 0.1
-                }s both`,
-              }}
-            >
-              <social.icon
-                size={14}
-                className="text-white/80 group-hover:text-white transition-colors duration-300"
-              />
-              <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white/20 backdrop-blur-sm text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {social.label}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* Hero Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left: Text & Bio */}
+          <div className="lg:col-span-7 space-y-5 text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
+              Hi, I'm <span className="text-white">Sumuk Bhat</span>.
+              <span className="block text-slate-400 text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2">
+                Full-stack & mobile developer.
               </span>
-            </a>
-          ))}
-        </div>
+            </h1>
 
-        {/* Resume Button */}
-        {/* Resume Button */}
-        <a
-          href="https://drive.google.com/drive/folders/1MDyDxm9jZFnA3pvD1dsU6qN0HrUyMns6?usp=sharing"
-          download={true}
-          target="_blank"
-          className="group relative mb-30 lg:mb-0 overflow-hidden bg-white/8 backdrop-blur-sm hover:bg-white/15 text-white font-medium px-5 py-2.5 rounded-lg border border-white/15 hover:border-white/30 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl pointer-events-auto"
-          style={{
-            animation: "fadeInUp 1s ease-out 0.8s both",
-          }}
-        >
-          <div className="relative flex items-center gap-2.5 z-10">
-            <Download size={16} className="group-hover:translate-y-[-1px] transition-transform duration-200" />
-            <span className="tracking-wide">Resume</span>
+            <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed max-w-xl">
+              I build web apps using <strong className="text-white font-medium">React</strong> and <strong className="text-white font-medium">FastAPI</strong>, and mobile applications with <strong className="text-white font-medium">Flutter</strong>. I have 2 apps published on Google Play and experience working on full-stack web and enterprise software projects.
+            </p>
+
+            {/* Actions */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90 transition-all active:scale-95"
+              >
+                <span>View Projects</span>
+                <ArrowRight size={15} />
+              </a>
+
+              {/* Socials */}
+              <div className="flex items-center gap-1.5 pl-1">
+                <a
+                  href={PERSONAL_INFO.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.06] transition-colors"
+                >
+                  <Linkedin size={18} />
+                </a>
+
+                <a
+                  href={`mailto:${PERSONAL_INFO.email}`}
+                  aria-label="Email"
+                  className="p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.06] transition-colors"
+                >
+                  <Mail size={18} />
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Subtle glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/8 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-800"></div>
-        </a>
+          {/* Right: Transparent Enclosure & Large Avatar */}
+          <div className="lg:col-span-5 flex justify-center items-center">
+            <div className="flex flex-col items-center text-center">
+              <div className="relative group">
+                <img
+                  src={PERSONAL_INFO.avatar}
+                  alt="Sumuk Bhat"
+                  className="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-3xl object-cover border border-white/10 shadow-2xl transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="eager"
+                />
+              </div>
+              <p className="text-xs sm:text-sm text-slate-400 mt-4 flex items-center justify-center gap-1.5 font-light">
+                <MapPin size={14} className="text-[#00f59b] shrink-0" />
+                <span>Udupi / Bengaluru, India</span>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideInScale {
-          from {
-            opacity: 0;
-            transform: scale(0.8) translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-          }
-        }
-
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(180deg);
-          }
-        }
-
-        @keyframes bounce {
-          0%,
-          20%,
-          50%,
-          80%,
-          100% {
-            transform: translateY(0);
-          }
-          40% {
-            transform: translateY(-10px);
-          }
-          60% {
-            transform: translateY(-5px);
-          }
-        }
-      `}</style>
-
-      {/* Hidden SEO Content - Helps with keyword ranking */}
-      <div className="sr-only" aria-hidden="true">
-        <h2>Sumuk Bhat - Full Stack Software Developer</h2>
-        <p>Sumuk Bhat, also known as Sumuk Mudarangadi, is a Full Stack Software Developer and AI Enthusiast from India.</p>
-        <p>Sumuk specializes in web development, React development, JavaScript, Python, and artificial intelligence.</p>
-        <p>Portfolio of Sumuk Bhat showcasing software development projects and technical skills.</p>
-        <p>Contact Sumuk Bhat for full stack development, web development, and AI/ML projects.</p>
-      </div>
-    </div>
+    </section>
   );
-};
-
-export default Home;
+}

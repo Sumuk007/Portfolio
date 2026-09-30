@@ -1,206 +1,141 @@
 import React, { useState } from 'react';
-import { Calendar, MapPin, Award, Building, GraduationCap, Briefcase } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, MapPin, Building2 } from 'lucide-react';
+import { EXPERIENCE_LOG, ACADEMIC_CREDENTIALS } from '../data/portfolioData';
 
-const Experience = () => {
+export default function Experience() {
   const [activeTab, setActiveTab] = useState('experience');
 
-  const experienceData = [
-    {
-      id: 1,
-      title: "Software Engineer Intern",
-      company: "Optimum Codes",
-      location: "Udupi, India",
-      duration: "June 2025 - August 2025 (2 months)",
-      type: "Internship",
-      description: "Worked on building full-stack web applications using FastAPI and React. Gained hands-on experience integrating REST APIs with PostgreSQL and managing CORS communication between frontend and backend.",
-      achievements: [
-        "Built core features of a mental health companion web app using React and FastAPI",
-        "Integrated FastAPI with PostgreSQL using SQLAlchemy ORM",
-        "Configured secure CORS handling for seamless API communication"
-      ],
-      technologies: ["React", "FastAPI", "PostgreSQL", "Tailwind CSS", "SQLAlchemy"]
-    },
-
-    {
-  id: 2,
-  title: "Custom Software Engineer",
-  company: "Accenture",
-  location: "Bengaluru, India",
-  duration: "December 2025 - May 2026 (5 months)",
-  type: "Internship",
-  description: "Worked as an intern in the SAP Testing domain on an enterprise ERP project. Participated in software testing activities, defect validation, and quality assurance while collaborating with experienced professionals in an Agile environment.",
-  achievements: [
-    "Performed functional testing for SAP ERP modules",
-    "Executed and validated test cases to ensure application quality",
-    "Collaborated with team members to support quality assurance activities"
-  ],
-  technologies: [
-    "SAP",
-    "Tosca",
-    "UFT",
-  ]
-}
-  ];
-
-  const educationData = [
-    {
-      id: 1,
-      degree: "Master of Computer Applications",
-      institution: "Manipal Institute of Technology",
-      location: "Manipal, India",
-      duration: "2024 - 2026",
-      cgpa: "7.61",
-      description: "Studying core concepts of computer science with a focus on full-stack development, data structures, and machine learning. Gaining practical experience through hands-on projects and internships in modern web technologies.",
-    },
-    {
-      id: 2,
-      degree: "Bachelor of Computer Applications",
-      institution: "Mahatma Gandhi Memorial College",
-      location: "Udupi, India",
-      duration: "2021 - 2024",
-      cgpa: "8.68",
-      description: "Studied the fundamentals of computer science with a strong emphasis on programming, algorithms, databases, and software development. Built a solid foundation through practical assignments and academic projects.",
-    }
-  ];
-
-  const renderExperience = () => (
-    <div className="space-y-8">
-      {experienceData.map((exp) => (
-        <div key={exp.id} className=" bg-white/5 backdrop-blur-md rounded-4xl p-6 border-1 border-white/30 shadow-[0_4px_30px_rgba(255,255,255,0.1)] transition-shadow duration-300">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-            <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
-              <div className="flex items-center  mb-2">
-                <Building className="w-4 h-4 mr-2 text-white/85" />
-                <span className="font-medium text-white/90">{exp.company}</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-500">
-                <div className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-1 text-white/85" />
-                  <span className='text-white/85'>{exp.location}</span>
-                </div>
-                <div className="flex items-center">
-                  <Calendar className="w-4 h-4 mr-1 text-white/85" />
-                  <span className='text-white/85'>{exp.duration}</span>
-                </div>
-                <span className="bg-[#84cc16]/20  w-fit text-[#84cc16] px-2 py-1 rounded-full text-xs font-medium">
-                  {exp.type}
-                </span>
-              </div>
-            </div>
-          </div>
-          
-          <p className="text-white/80 mb-4">{exp.description}</p>
-          
-          <div className="mb-4">
-            <h4 className="font-semibold text-white/90 mb-2">Key Achievements:</h4>
-            <ul className="space-y-1">
-              {exp.achievements.map((achievement, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-blue-500 mr-2">•</span>
-                  <span className="text-white/80">{achievement}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-white/85 mb-2 ">Technologies:</h4>
-            <div className="flex flex-wrap gap-2">
-              {exp.technologies.map((tech, index) => (
-                <span key={index} className="bg-gray-900 text-white/85 px-3 py-1 rounded-full text-sm border border-gray-700 hover:border-[#84cc16] transition-colors duration-300">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-
-  const renderEducation = () => (
-    <div className="space-y-8">
-      {educationData.map((edu) => (
-        <div key={edu.id} className="bg-white/5 backdrop-blur-md rounded-4xl p-6 border-1 border-white/30 shadow-[0_4px_30px_rgba(255,255,255,0.1)]  duration-300">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-            <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-2">{edu.degree}</h3>
-              <div className="flex items-center text-gray-600 mb-2">
-                <GraduationCap className="w-4 h-4 mr-2 text-white/85" />
-                <span className="font-medium text-white/85">{edu.institution}</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-white/85">
-                <div className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-1 text-white/85" />
-                  <span className='text-white/85'>{edu.location}</span>
-                </div>
-                <div className="flex items-center">
-                  <Calendar className="w-4 h-4 mr-1 text-white/85" />
-                  <span className='text-white/85'>{edu.duration}</span>
-                </div>
-                {/* <span className="bg-[#84cc16]/20 text-[#84cc16] w-fit px-2 py-1 rounded-full text-xs font-medium">
-                  CGPA: {edu.cgpa}
-                </span> */}
-              </div>
-            </div>
-          </div>
-          
-          <p className="text-white/80 mb-4">{edu.description}</p>
-        </div>
-      ))}
-    </div>
-  );
-
   return (
-    <section className="bg-black pb-8 min-h-screen" id='experience'>
-      <div className="container mx-auto px-4 sm:px-6 md:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-[#84cc16]">Experience & Education</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            My professional journey and academic background
-          </p>
-          <div className="w-24 h-1 bg-[#84cc16] mx-auto mt-6 rounded-full"></div>
-        </div>
+    <section id="experience" className="relative py-20 bg-[#060709] border-t border-white/[0.06]">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              Experience & Education
+            </h2>
+            <div className="w-12 h-1 bg-gradient-to-r from-[#00f59b] to-[#00d2ff] rounded-full mt-2.5 shadow-[0_0_10px_rgba(0,245,155,0.4)]"></div>
+            <p className="text-sm sm:text-base text-slate-400 mt-2 font-light">
+              My previous internships and academic background.
+            </p>
+          </div>
 
-        {/* Tab Navigation */}
-        <div className="flex justify-center mb-8">
-          <div className="bg-gray-700 rounded-4xl shadow-md p-1 flex">
+          {/* Tab Switcher */}
+          <div className="flex items-center gap-1 p-1 rounded-xl bg-white/[0.02] border border-white/[0.06] self-start sm:self-auto">
             <button
               onClick={() => setActiveTab('experience')}
-              className={`flex border-none items-center px-12 md:px-30 py-1.5 rounded-4xl font-medium transition-all duration-300 ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                 activeTab === 'experience'
-                  ? 'bg-black text-white shadow-md'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#00f59b] text-black font-semibold'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
-              <Briefcase className="w-5 h-5 mr-2" />
-              Experience
+              <Briefcase size={13} />
+              <span>Work</span>
             </button>
             <button
               onClick={() => setActiveTab('education')}
-              className={`flex border-none items-center px-12 md:px-30 py-1.5 rounded-4xl font-medium transition-all duration-300 ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                 activeTab === 'education'
-                  ? 'bg-black text-white shadow-md'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#00f59b] text-black font-semibold'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
-              <GraduationCap className="w-5 h-5 mr-2" />
-              Education
+              <GraduationCap size={14} />
+              <span>Education</span>
             </button>
           </div>
         </div>
 
-        {/* Tab Content */}
-        <div className="max-w-4xl mx-auto">
-          <div className="transition-all duration-300 ease-in-out">
-            {activeTab === 'experience' ? renderExperience() : renderEducation()}
+        {/* Tab 1: Work Experience */}
+        {activeTab === 'experience' && (
+          <div className="space-y-6">
+            {EXPERIENCE_LOG.map((item) => (
+              <div 
+                key={item.id} 
+                className="glass-panel rounded-3xl p-6 sm:p-7 border border-white/[0.08] hover:border-white/15 transition-all space-y-4"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-white/[0.06] pb-3">
+                  <div>
+                    <h3 className="text-lg font-bold text-white">{item.role}</h3>
+                    <div className="flex items-center gap-2 text-sm text-[#00f59b] font-medium mt-0.5">
+                      <Building2 size={14} />
+                      <span>{item.company}</span>
+                      <span className="text-slate-600">•</span>
+                      <span className="text-slate-400 text-xs font-normal">{item.location}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                    <Calendar size={13} />
+                    <span>{item.period}</span>
+                  </div>
+                </div>
+
+                <p className="text-sm text-slate-300 font-light leading-relaxed">
+                  {item.description}
+                </p>
+
+                <ul className="space-y-1.5">
+                  {item.highlights.map((h, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300 font-light">
+                      <span className="text-[#00f59b] mt-1 text-base leading-none">•</span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap items-center gap-1.5 pt-2">
+                  {item.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-2.5 py-0.5 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs text-slate-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+        )}
+
+        {/* Tab 2: Education */}
+        {activeTab === 'education' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {ACADEMIC_CREDENTIALS.map((edu) => (
+              <div
+                key={edu.id}
+                className="glass-panel rounded-3xl p-6 border border-white/[0.08] hover:border-white/15 transition-all space-y-4 flex flex-col justify-between"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#00f59b]">
+                      <GraduationCap size={18} />
+                    </div>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold text-black bg-[#00f59b]">
+                      {edu.score}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-bold text-white">{edu.degree}</h3>
+                    <p className="text-sm text-slate-300 mt-0.5">{edu.institution}</p>
+                    <p className="text-xs text-slate-400 mt-1 flex items-center gap-1">
+                      <MapPin size={11} />
+                      <span>{edu.location} • {edu.period}</span>
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-400 font-light pt-2 border-t border-white/[0.06]">
+                  {edu.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
-};
-
-export default Experience;
+}
