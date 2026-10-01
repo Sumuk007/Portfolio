@@ -1,216 +1,194 @@
-import React, { useState } from "react";
-import { Github, ExternalLink, Code, Laptop } from "lucide-react";
-import ai_resume from "../assets/projects/ai_resume_analyzer.webp";
-import reelninja from "../assets/projects/reelninja.webp";
-import packageinfo from "../assets/projects/package_info.webp";
-import slcm from "../assets/projects/slcm.webp";
-import facestudio from "../assets/projects/facestudio.png";
-import quietly from "../assets/projects/quietly.png";
+import React, { useState } from 'react';
+import { ExternalLink, Github, ArrowUpRight, Play } from 'lucide-react';
+import { PROJECTS } from '../data/portfolioData';
 
+const CATEGORIES = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'mobile', label: 'Mobile' },
+  { id: 'web', label: 'Web & AI' },
+];
 
-const Projects = () => {
-  const [hoveredProject, setHoveredProject] = useState(null);
+export default function Projects() {
+  const [activeCategory, setActiveCategory] = useState('all');
 
-  // Sample project data - replace with your actual projects
-  const projects = [
-    {
-      id: 1,
-      title: "Face Studio - Face Shape AI",
-      description:
-        "An AI-powered Flutter application that scans a user's face in real time to identify their face shape and provides personalized hairstyle recommendations for different face types.",
-      image: facestudio,
-      githubUrl: null,
-      liveUrl: "https://play.google.com/store/apps/details?id=com.viper.facestudio",
-      techStack: [
-        "Flutter",
-        "Dart",
-        "Google ML Kit",
-        "Google AdMob",
-        "RevenueCat"
-      ],
-    },
+  const filteredProjects = activeCategory === 'all'
+    ? PROJECTS
+    : activeCategory === 'mobile'
+      ? PROJECTS.filter(p => p.category === 'mobile')
+      : PROJECTS.filter(p => p.category === 'web' || p.category === 'ai');
 
-    {
-      id: 2,
-      title: "Quietly: Sleep & White Noise",
-      description:
-        "A Flutter-based sleep and relaxation app featuring calming nature sounds and ambient audio to help users sleep, meditate, and improve focus. Includes offline playback, customizable sound mixing, and premium content.",
-      image: quietly,
-      githubUrl: null,
-      liveUrl: "https://play.google.com/store/apps/details?id=com.viper.sleepsounds",
-      techStack: [
-        "Flutter",
-        "Dart",
-        "Google AdMob",
-        "RevenueCat",
-        "SharedPreferences"
-      ],
-    },
-
-    {
-      id: 3,
-      title: "Student Lifecycle Management System(SLCM)",
-      description:
-        "SLCM – Android app built with Java and Firebase to manage attendance, assignments, timetables, and communication among students, faculty, and admins. Developed as a final year team project.",
-      image: slcm,
-      githubUrl: "https://github.com/Sumuk007/Attendance_System",
-      liveUrl: null,
-      techStack: ["Android SDK", "Java", "Firebase", "XML"],
-    },
-    {
-      id: 4,
-      title: "AI Resume Analyzer",
-      description:
-        "An AI tool that reviews resumes against job descriptions, scores them out of 100, and suggests key improvements to boost job relevance.",
-      image: ai_resume,
-      githubUrl: "https://github.com/Sumuk007/AI-Resume-Analyzer",
-      liveUrl: "https://resumeanalyzer-ai.vercel.app/",
-      techStack: ["React", "FastAPI", "Gemini API", "Axios", "Tailwind CSS"],
-    },
-    {
-      id: 5,
-      title: "ReelNinja - Instagram Reel Downloader",
-      description:
-        "A tool to download Instagram Reels or extract audio quickly and easily using just the reel URL.",
-      image: reelninja,
-      githubUrl: "https://github.com/Sumuk007/ReelNinja",
-      liveUrl: "https://reelninja.onrender.com/",
-      techStack: ["Django", "Python", "HTML", "CSS", "Bootstrap"],
-    },
-  ];
+  const featuredProject = PROJECTS.find(p => p.featured);
+  const secondaryProjects = filteredProjects.filter(p => !p.featured || activeCategory !== 'all');
 
   return (
-    <section className="min-h-screen bg-black px-4 pb-8" id="projects">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-[#84cc16]">
-            Projects
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Explore my latest work and creative solutions
-          </p>
-          <div className="w-24 h-1 bg-[#84cc16] mx-auto mt-6 rounded-full"></div>
+    <section id="projects" className="relative pt-10 pb-14 sm:py-20 bg-[#060709] border-t border-white/[0.06]">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
+          <div>
+            <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+              Projects
+            </h2>
+            <div className="w-12 h-1 bg-gradient-to-r from-[#00f59b] to-[#00d2ff] rounded-full mt-2.5 shadow-[0_0_10px_rgba(0,245,155,0.4)]"></div>
+            <p className="text-sm sm:text-base text-slate-400 mt-2 font-light">
+              Mobile apps on Google Play and web projects.
+            </p>
+          </div>
+
+          {/* Filter Pills */}
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.02] border border-white/[0.06] self-start sm:self-auto max-w-full overflow-x-auto scrollbar-hide">
+            {CATEGORIES.map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`btn-interactive whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                  activeCategory === cat.id
+                    ? 'bg-[#00f59b] text-black font-semibold'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-6">
-          {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className={`group border-none relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl  ${index % 2 === 0 ? "animate-fadeInUp" : "animate-fadeInUp"
-                }`}
-              style={{
-                animationDelay: `${index * 0.1}s`,
-              }}
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
-            >
-              {/* Project Image Container */}
-              <div className="relative aspect-video overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+        {/* Featured Project: Face Studio */}
+        {featuredProject && activeCategory === 'all' && (
+          <div className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-8 mb-8 border border-white/[0.1] hover:border-white/20 transition-all">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-4">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs text-[#00f59b] bg-[#00f59b]/10 border border-[#00f59b]/25">
+                  <span>Google Play App</span>
+                </div>
 
-                {/* Overlay with Action Buttons */}
-                <div
-                  className={`absolute inset-0 bg-black/80 flex items-center justify-center space-x-6 transition-all duration-300 ${hoveredProject === project.id ? "opacity-100" : "opacity-0"
-                    }`}
-                >
-                  {/* GitHub Button */}
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/btn relative p-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full border border-gray-600 hover:border-[#84cc16] transition-all duration-300 hover:scale-110"
-                    >
-                      <Github className="w-6 h-6 text-white group-hover/btn:text-[#84cc16] transition-colors duration-300" />
-                      <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-sm opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
-                        Code
-                      </span>
-                    </a>
-                  )}
+                <div className="space-y-2">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    {featuredProject.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
+                    {featuredProject.description}
+                  </p>
+                </div>
 
-                  {/* Live Demo Button */}
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/btn relative p-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full border border-gray-600 hover:border-[#84cc16] transition-all duration-300 hover:scale-110"
+                {/* Tech Tags */}
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  {featuredProject.techStack.map((tech, idx) => (
+                    <span 
+                      key={idx} 
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.08] text-xs text-slate-300"
                     >
-                      <ExternalLink className="w-6 h-6 text-white group-hover/btn:text-[#84cc16] transition-colors duration-300" />
-                      <span className="absolute text-nowrap -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-sm opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
-                        Live Demo
-                      </span>
-                    </a>
-                  )}
+                      {tech.icon && <img src={tech.icon} alt="" className="w-3.5 h-3.5 object-contain" />}
+                      <span>{tech.name}</span>
+                    </span>
+                  ))}
+                </div>
+
+                {/* Direct Action Link */}
+                <div className="pt-2">
+                  <a
+                    href={featuredProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-interactive inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90"
+                  >
+                    <Play size={14} className="fill-black" />
+                    <span>View on Google Play</span>
+                    <ArrowUpRight size={14} />
+                  </a>
                 </div>
               </div>
 
-              {/* Project Content */}
-              <div className="p-6 space-y-4">
-                {/* Project Title */}
-                <h3 className="text-xl font-bold text-white group-hover:text-[#84cc16] transition-colors duration-300">
-                  {project.title}
-                </h3>
+              {/* Preview image */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative w-full max-w-sm aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-slate-950 p-1.5 shadow-xl">
+                  <img
+                    src={featuredProject.image}
+                    alt={featuredProject.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
-                {/* Project Description */}
-                <p className="text-gray-300 text-sm leading-relaxed line-clamp-4">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="pt-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 font-bold py-1 bg-gray-800 text-[#84cc16] text-xs rounded-full border border-gray-700 hover:border-[#84cc16] transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+        {/* Secondary Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          {secondaryProjects.map((project) => (
+            <div
+              key={project.id}
+              className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/[0.08] hover:border-white/20 flex flex-col justify-between transition-all"
+            >
+              <div className="space-y-3.5 sm:space-y-4">
+                <div className="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] bg-black/60">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-0.5 rounded-md text-xs font-medium text-white bg-black/80 backdrop-blur-md border border-white/15">
+                      {project.badge}
+                    </span>
                   </div>
                 </div>
+
+                <div className="space-y-1.5">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-slate-300 font-light leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* Tech Tags */}
+                <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                  {project.techStack.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs text-slate-300 flex items-center gap-1"
+                    >
+                      {tech.icon && <img src={tech.icon} alt="" className="w-3 h-3 object-contain" />}
+                      <span>{tech.name}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2 pt-4 border-t border-white/[0.06] mt-4 sm:pt-5 sm:mt-5">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-interactive flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-medium text-black bg-[#00f59b] hover:bg-[#00f59b]/90"
+                  >
+                    <span>{project.isStoreApp ? "Google Play" : "Live Demo"}</span>
+                    <ArrowUpRight size={13} />
+                  </a>
+                )}
+
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-interactive inline-flex items-center justify-center gap-1.5 py-2 px-4 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10"
+                  >
+                    <Github size={14} />
+                    <span>Source</span>
+                  </a>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Custom Styles */}
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fadeInUp {
-          animation: fadeInUp 0.8s ease-out forwards;
-          opacity: 0;
-        }
-
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      `}</style>
     </section>
   );
-};
-
-export default Projects;
+}

@@ -1,149 +1,43 @@
-import React, { useState } from "react";
-import reacticon from "../assets/icons/react_icon.svg";
-import htmlicon from "../assets/icons/html.svg";
-import jsicon from "../assets/icons/javascript.svg";
-import tailwindicon from "../assets/icons/tailwind.svg";
-import cssicon from "../assets/icons/css.svg";
-import pythonicon from "../assets/icons/python.svg";
-import fastapiicon from "../assets/icons/fastapi.svg";
-import bootstrapicon from "../assets/icons/bootstrap.svg";
-import djangoicon from "../assets/icons/django.svg";
-import phpicon from "../assets/icons/php.svg";
-import postgresqlicon from "../assets/icons/postgresql.svg";
-import sqliteicon from "../assets/icons/sqlite.svg";
-import mysqlicon from "../assets/icons/mysql.svg";
-import cicon from "../assets/icons/c.svg";
-import cppicon from "../assets/icons/cpp.svg";
-import ricon from "../assets/icons/r.svg";
-import javaicon from "../assets/icons/java.svg";
-import fluttericon from "../assets/icons/flutter.svg";
-import darticon from "../assets/icons/dart.svg";
+import React from 'react';
+import { SKILL_CATEGORIES } from '../data/portfolioData';
 
-const Skills = () => {
-  const techStacks = [
-    {
-      category: "Frontend",
-      color: "text-[#60a5fa] border-[#60a5fa]/30 text-center",
-      bgColor: "bg-[#60a5fa]/5",
-      techs: [
-        { name: "React", src: reacticon },
-        { name: "Flutter", src: fluttericon },
-        { name: "JavaScript", src: jsicon },
-        { name: "HTML5", src: htmlicon },
-        { name: "CSS3", src: cssicon },
-        { name: "Tailwind CSS", src: tailwindicon },
-        { name: "Bootstrap", src: bootstrapicon },
-      ],
-    },
-    {
-      category: "Backend",
-      color: "text-[#34d399] border-[#34d399]/30 text-center",
-      bgColor: "bg-[#34d399]/5",
-      techs: [
-        { name: "Python", src: pythonicon },
-        { name: "Django", src: djangoicon },
-        { name: "FastAPI", src: fastapiicon },
-        { name: "PHP", src: phpicon },
-      ],
-    },
-    {
-      category: "Database",
-      color: "text-[#c084fc] border-[#c084fc]/30 text-center",
-      bgColor: "bg-[#c084fc]/5",
-      techs: [
-        { name: "PostgreSQL", src: postgresqlicon },
-        { name: "MySQL", src: mysqlicon },
-        { name: "SQLite", src: sqliteicon },
-      ],
-    },
-    {
-      category: "Programming Languages",
-      color: "text-[#fb923c] border-[#fb923c]/30 text-center",
-      bgColor: "bg-[#fb923c]/5",
-      techs: [
-        { name: "C", src: cicon },
-        { name: "C++", src: cppicon },
-        { name: "Java", src: javaicon },
-        { name: "Python", src: pythonicon },
-        { name: "Dart", src: darticon },
-        // { name: "R", src: ricon },
-      ],
-    },
-  ];
-
-  // // Helper function to get tech stack icon URL
-  // const getTechIcon = (techName) => {
-  //   const iconName = techName.toLowerCase()
-  //     .replace(/\s+/g, '')
-  //     .replace('.js', 'js')
-  //     .replace('.', '')
-  //     .replace('css3', 'css')
-  //     .replace('html5', 'html')
-  //     .replace('postgresql', 'postgres')
-  //     .replace('github actions', 'githubactions')
-  //     .replace('vs code', 'vscode')
-  //     .replace('spring boot', 'springboot')
-  //     .replace('fast api', 'fastapi')
-  //     .replace('express.js', 'express')
-  //     .replace('tailwind css', 'tailwindcss');
-
-  //   return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${iconName}/${iconName}-original.svg`;
-  // };
-
-  // Fallback for icons that might not exist
-  const handleImageError = (e) => {
-    e.target.style.display = "none";
-    e.target.nextSibling.style.display = "flex";
-  };
-
+export default function Skills() {
   return (
-    <section className="bg-black pb-8" id="skills">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="relative py-14 sm:py-20 bg-[#060709] border-t border-white/[0.06]">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-[#84cc16]">
-            Skills
+        <div className="mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+            Skills & Tech Stack
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Technologies I work with
+          <div className="w-12 h-1 bg-gradient-to-r from-[#00f59b] to-[#00d2ff] rounded-full mt-2.5 shadow-[0_0_10px_rgba(0,245,155,0.4)]"></div>
+          <p className="text-sm sm:text-base text-slate-400 mt-2 font-light">
+            Languages, frameworks, and databases I work with regularly.
           </p>
-          <div className="w-24 h-1 bg-[#84cc16] mx-auto mt-6 rounded-full"></div>
         </div>
 
-        {/* Tech Stacks */}
-        <div className="max-w-5xl mx-auto space-y-8">
-          {techStacks.map((stack) => (
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+          {SKILL_CATEGORIES.map((cat, idx) => (
             <div
-              key={stack.category}
-              className="bg-white/5 backdrop-blur-md border border-white/30 rounded-2xl p-6 text-white shadow-[0_4px_30px_rgba(255,255,255,0.1)]"
+              key={idx}
+              className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/[0.08] hover:border-white/15 transition-all space-y-3.5 sm:space-y-4"
             >
-              <h3
-                className={`text-lg font-semibold mb-4 pb-2 border-b-2 ${stack.color}`}
-              >
-                {stack.category}
+              <h3 className="text-base font-semibold text-white">
+                {cat.category}
               </h3>
 
-              <div className="flex justify-center flex-wrap gap-3">
-                {stack.techs.map((tech) => (
-                  <a
-                    key={tech.name}
-                    rel="noopener noreferrer"
-                    className={`group relative flex items-center gap-2 ${stack.bgColor} px-4 py-2 rounded-lg border border-white/40 ${stack.color.replace('text-', 'border-').split(' ')[0].replace('text-', 'border-')} shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md`}
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {cat.skills.map((skill, sIdx) => (
+                  <div
+                    key={sIdx}
+                    className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg sm:rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs text-slate-200"
                   >
-                    <div className="flex items-center gap-2">
-                      <img
-                        src={tech.src}
-                        alt={tech.name}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-5 h-5 flex-shrink-0"
-                        onError={handleImageError}
-                      />
-                      <span className="text-sm font-medium text-white/90 whitespace-nowrap antialiased transition-colors duration-200">
-                        {tech.name}
-                      </span>
-                    </div>
-                  </a>
+                    {skill.icon && (
+                      <img src={skill.icon} alt="" className="w-3.5 h-3.5 object-contain" />
+                    )}
+                    <span>{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -152,6 +46,4 @@ const Skills = () => {
       </div>
     </section>
   );
-};
-
-export default Skills;
+}

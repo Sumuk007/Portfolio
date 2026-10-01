@@ -1,24 +1,24 @@
-import { useState } from 'react'
-import Home from './components/Home'
+import React from 'react'
 import Navbar from './components/Navbar'
-import Experience from './components/Experience'
-import Skills from './components/Skills'
+import Home from './components/Home'
 import Projects from './components/Projects'
+import Skills from './components/Skills'
+import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-function App() {
+export default function App() {
   return (
-    <>
+    <div className="min-h-screen bg-[#060709] text-slate-100 antialiased selection:bg-[#00f59b]/25 selection:text-white">
       <Navbar />
-      <Home />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
+      <main>
+        <Home />
+        <Projects />
+        <Experience />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
-
-export default App
