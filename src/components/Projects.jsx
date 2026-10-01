@@ -41,7 +41,7 @@ export default function Projects() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                className={`btn-interactive px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                   activeCategory === cat.id
                     ? 'bg-[#00f59b] text-black font-semibold'
                     : 'text-slate-400 hover:text-white'
@@ -90,7 +90,7 @@ export default function Projects() {
                     href={featuredProject.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90 transition-colors"
+                    className="btn-interactive inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90"
                   >
                     <Play size={14} className="fill-black" />
                     <span>View on Google Play</span>
@@ -166,7 +166,7 @@ export default function Projects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-medium text-black bg-[#00f59b] hover:bg-[#00f59b]/90 transition-colors"
+                    className="btn-interactive flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-medium text-black bg-[#00f59b] hover:bg-[#00f59b]/90"
                   >
                     <span>{project.isStoreApp ? "Google Play" : "Live Demo"}</span>
                     <ArrowUpRight size={13} />
@@ -178,7 +178,7 @@ export default function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 py-2 px-4 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-colors"
+                    className="btn-interactive inline-flex items-center justify-center gap-1.5 py-2 px-4 rounded-xl text-xs font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10"
                   >
                     <Github size={14} />
                     <span>Source</span>

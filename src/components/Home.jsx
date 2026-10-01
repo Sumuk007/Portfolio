@@ -37,7 +37,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90 transition-all active:scale-95"
+                className="btn-interactive inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90"
               >
                 <span>View Projects</span>
                 <ArrowRight size={15} />
@@ -50,7 +50,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
-                  className="p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.06] transition-colors"
+                  className="btn-interactive p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.06]"
                 >
                   <Linkedin size={18} />
                 </a>
@@ -58,7 +58,7 @@ export default function Home() {
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
                   aria-label="Email"
-                  className="p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.06] transition-colors"
+                  className="btn-interactive p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.06]"
                 >
                   <Mail size={18} />
                 </a>

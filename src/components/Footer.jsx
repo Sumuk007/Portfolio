@@ -26,7 +26,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white transition-colors"
+              className="btn-interactive p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white"
             >
               <Github size={16} />
             </a>
@@ -36,7 +36,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white transition-colors"
+              className="btn-interactive p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white"
             >
               <Linkedin size={16} />
             </a>
@@ -46,7 +46,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white transition-colors"
+              className="btn-interactive p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white"
             >
               <Instagram size={16} />
             </a>
@@ -54,14 +54,14 @@ export default function Footer() {
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
               aria-label="Email"
-              className="p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white transition-colors"
+              className="btn-interactive p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white"
             >
               <Mail size={16} />
             </a>
 
             <button
               onClick={scrollToTop}
-              className="ml-2 flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-xs text-slate-400 hover:text-white transition-colors"
+              className="btn-interactive ml-2 flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-xs text-slate-400 hover:text-white"
               title="Back to top"
             >
               <span>Top</span>

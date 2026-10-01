@@ -24,7 +24,7 @@ export default function Experience() {
           <div className="flex items-center gap-1 p-1 rounded-xl bg-white/[0.02] border border-white/[0.06] self-start sm:self-auto">
             <button
               onClick={() => setActiveTab('experience')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+              className={`btn-interactive flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                 activeTab === 'experience'
                   ? 'bg-[#00f59b] text-black font-semibold'
                   : 'text-slate-400 hover:text-white'
@@ -35,7 +35,7 @@ export default function Experience() {
             </button>
             <button
               onClick={() => setActiveTab('education')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+              className={`btn-interactive flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                 activeTab === 'education'
                   ? 'bg-[#00f59b] text-black font-semibold'
                   : 'text-slate-400 hover:text-white'

@@ -85,7 +85,7 @@ export default function Contact() {
 
                   <button
                     onClick={handleCopyEmail}
-                    className="p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white transition-colors shrink-0"
+                    className="btn-interactive p-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white shrink-0"
                     title="Copy email"
                   >
                     {copiedEmail ? <Check size={14} className="text-[#00f59b]" /> : <Copy size={14} />}
@@ -187,7 +187,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90 transition-all disabled:opacity-50"
+                  className="btn-interactive w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90 disabled:opacity-50"
                 >
                   <Send size={14} />
                   <span>{status === 'submitting' ? 'Sending...' : 'Send Message'}</span>
