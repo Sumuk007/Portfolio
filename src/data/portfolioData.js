@@ -202,19 +202,15 @@ export const SKILL_CATEGORIES = [
 
 export const EXPERIENCE_LOG = [
   {
-    id: "optimum-codes",
-    role: "Software Engineer Intern",
-    company: "Optimum Codes",
-    location: "Udupi, India",
-    period: "June 2025 - August 2025",
-    type: "Internship",
-    description: "Worked on a full-stack mental health companion web application using React and FastAPI.",
-    highlights: [
-      "Built responsive user interfaces in React with Tailwind CSS.",
-      "Developed backend REST API endpoints in FastAPI integrated with PostgreSQL via SQLAlchemy.",
-      "Configured CORS and client-side communication for smooth frontend-backend integration."
-    ],
-    technologies: ["React", "FastAPI", "PostgreSQL", "SQLAlchemy", "Tailwind CSS", "Python"]
+    id: "accenture-fulltime",
+    role: "Packaged App Development Associate",
+    company: "Accenture",
+    location: "Bengaluru, India",
+    period: "August 2026 - Present",
+    type: "Full-time",
+    description: "",
+    highlights: [],
+    technologies: []
   },
   {
     id: "accenture",
@@ -230,6 +226,21 @@ export const EXPERIENCE_LOG = [
       "Collaborated with engineers to support quality assurance cycles."
     ],
     technologies: ["SAP ERP", "Tosca", "UFT", "Agile Testing"]
+  },
+  {
+    id: "optimum-codes",
+    role: "Software Engineer Intern",
+    company: "Optimum Codes",
+    location: "Udupi, India",
+    period: "June 2025 - August 2025",
+    type: "Internship",
+    description: "Worked on a full-stack mental health companion web application using React and FastAPI.",
+    highlights: [
+      "Built responsive user interfaces in React with Tailwind CSS.",
+      "Developed backend REST API endpoints in FastAPI integrated with PostgreSQL via SQLAlchemy.",
+      "Configured CORS and client-side communication for smooth frontend-backend integration."
+    ],
+    technologies: ["React", "FastAPI", "PostgreSQL", "SQLAlchemy", "Tailwind CSS", "Python"]
   }
 ];
 

@@ -50,53 +50,74 @@ export default function Experience() {
         {/* Tab 1: Work Experience */}
         {activeTab === 'experience' && (
           <div className="space-y-4 sm:space-y-6">
-            {EXPERIENCE_LOG.map((item) => (
-              <div 
-                key={item.id} 
-                className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.08] hover:border-white/15 transition-all space-y-3.5 sm:space-y-4"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-white/[0.06] pb-3">
-                  <div>
-                    <h3 className="text-lg font-bold text-white">{item.role}</h3>
-                    <div className="flex items-center gap-2 text-sm text-[#00f59b] font-medium mt-0.5">
-                      <Building2 size={14} />
-                      <span>{item.company}</span>
-                      <span className="text-slate-600">•</span>
-                      <span className="text-slate-400 text-xs font-normal">{item.location}</span>
+            {EXPERIENCE_LOG.map((item) => {
+              const hasDetails = Boolean(
+                item.description || 
+                (item.highlights && item.highlights.length > 0) || 
+                (item.technologies && item.technologies.length > 0)
+              );
+
+              return (
+                <div 
+                  key={item.id} 
+                  className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.08] hover:border-white/15 transition-all space-y-3.5 sm:space-y-4"
+                >
+                  <div className={`flex flex-col sm:flex-row sm:items-start justify-between gap-2 ${hasDetails ? 'border-b border-white/[0.06] pb-3' : ''}`}>
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="text-lg font-bold text-white">{item.role}</h3>
+                        {item.type && (
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#00f59b]/10 text-[#00f59b] border border-[#00f59b]/25">
+                            {item.type}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-[#00f59b] font-medium mt-0.5">
+                        <Building2 size={14} />
+                        <span>{item.company}</span>
+                        <span className="text-slate-600">•</span>
+                        <span className="text-slate-400 text-xs font-normal">{item.location}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                      <Calendar size={13} />
+                      <span>{item.period}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
-                    <Calendar size={13} />
-                    <span>{item.period}</span>
-                  </div>
+                  {item.description && (
+                    <p className="text-sm text-slate-300 font-light leading-relaxed">
+                      {item.description}
+                    </p>
+                  )}
+
+                  {item.highlights && item.highlights.length > 0 && (
+                    <ul className="space-y-1.5">
+                      {item.highlights.map((h, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300 font-light">
+                          <span className="text-[#00f59b] mt-1 text-base leading-none">•</span>
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {item.technologies && item.technologies.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5 pt-2">
+                      {item.technologies.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-2.5 py-0.5 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs text-slate-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-
-                <p className="text-sm text-slate-300 font-light leading-relaxed">
-                  {item.description}
-                </p>
-
-                <ul className="space-y-1.5">
-                  {item.highlights.map((h, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300 font-light">
-                      <span className="text-[#00f59b] mt-1 text-base leading-none">•</span>
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                  {item.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-2.5 py-0.5 rounded-lg bg-white/[0.03] border border-white/[0.06] text-xs text-slate-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
 
