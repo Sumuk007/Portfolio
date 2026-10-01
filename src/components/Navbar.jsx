@@ -5,8 +5,8 @@ import { PERSONAL_INFO } from '../data/portfolioData';
 const NAV_ITEMS = [
   { name: 'About', href: '#home' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
+  { name: 'Skills', href: '#skills' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -40,11 +40,10 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-4 pt-3 sm:pt-4 pointer-events-none transition-all duration-300">
       <div
-        className={`pointer-events-auto w-full max-w-4xl rounded-2xl transition-all duration-300 ${
-          scrolled
+        className={`pointer-events-auto w-full max-w-4xl rounded-2xl transition-all duration-300 ${scrolled
             ? 'glass-panel-elevated shadow-[0_12px_40px_rgba(0,0,0,0.6)] py-2 sm:py-2.5 px-3.5 sm:px-6'
             : 'glass-panel py-2.5 sm:py-3 px-3.5 sm:px-6'
-        }`}
+          }`}
       >
         <div className="flex items-center justify-between">
           {/* Brand */}
@@ -65,11 +64,10 @@ export default function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 active:scale-95 ${
-                    isActive
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 active:scale-95 ${isActive
                       ? 'text-white bg-white/[0.08]'
                       : 'text-slate-400 hover:text-white hover:bg-white/[0.04] hover:-translate-y-0.5'
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </a>
@@ -120,11 +118,10 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-3.5 py-2.5 rounded-xl text-xs font-medium transition-colors ${
-                    isActive
+                  className={`px-3.5 py-2.5 rounded-xl text-xs font-medium transition-colors ${isActive
                       ? 'bg-[#00f59b]/15 text-[#00f59b] font-semibold border border-[#00f59b]/25'
                       : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </a>
