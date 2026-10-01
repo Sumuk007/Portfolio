@@ -8,7 +8,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#050608] border-t border-white/[0.08] text-slate-400 py-10">
+    <footer className="relative bg-[#050608] border-t border-white/[0.08] text-slate-400 py-8 sm:py-10">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <a
               href={PERSONAL_INFO.socials.github}
               target="_blank"

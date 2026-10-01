@@ -38,18 +38,19 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 pointer-events-none transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-4 pt-3 sm:pt-4 pointer-events-none transition-all duration-300">
       <div
         className={`pointer-events-auto w-full max-w-4xl rounded-2xl transition-all duration-300 ${
           scrolled
-            ? 'glass-panel-elevated shadow-[0_12px_40px_rgba(0,0,0,0.6)] py-2.5 px-4 sm:px-6'
-            : 'glass-panel py-3 px-4 sm:px-6'
+            ? 'glass-panel-elevated shadow-[0_12px_40px_rgba(0,0,0,0.6)] py-2 sm:py-2.5 px-3.5 sm:px-6'
+            : 'glass-panel py-2.5 sm:py-3 px-3.5 sm:px-6'
         }`}
       >
         <div className="flex items-center justify-between">
           {/* Brand */}
           <a
             href="#home"
+            onClick={() => setMobileMenuOpen(false)}
             className="text-sm font-semibold text-white hover:text-[#00f59b] transition-colors duration-200 focus:outline-none"
             aria-label="Sumuk Bhat"
           >
@@ -119,9 +120,9 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+                  className={`px-3.5 py-2.5 rounded-xl text-xs font-medium transition-colors ${
                     isActive
-                      ? 'bg-[#00f59b]/15 text-[#00f59b]'
+                      ? 'bg-[#00f59b]/15 text-[#00f59b] font-semibold border border-[#00f59b]/25'
                       : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
@@ -135,7 +136,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="btn-interactive flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium text-black bg-[#00f59b] hover:bg-[#00f59b]/90"
+                className="btn-interactive flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-semibold text-black bg-[#00f59b] hover:bg-[#00f59b]/90"
               >
                 <Download size={14} />
                 <span>Resume</span>
@@ -145,7 +146,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
-                className="btn-interactive p-2 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300 hover:text-white"
+                className="btn-interactive p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-slate-300 hover:text-white"
               >
                 <Github size={16} />
               </a>

@@ -21,12 +21,12 @@ export default function Projects() {
   const secondaryProjects = filteredProjects.filter(p => !p.featured || activeCategory !== 'all');
 
   return (
-    <section id="projects" className="relative py-20 bg-[#060709] border-t border-white/[0.06]">
+    <section id="projects" className="relative pt-10 pb-14 sm:py-20 bg-[#060709] border-t border-white/[0.06]">
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
               Projects
             </h2>
             <div className="w-12 h-1 bg-gradient-to-r from-[#00f59b] to-[#00d2ff] rounded-full mt-2.5 shadow-[0_0_10px_rgba(0,245,155,0.4)]"></div>
@@ -36,12 +36,12 @@ export default function Projects() {
           </div>
 
           {/* Filter Pills */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.02] border border-white/[0.06] self-start sm:self-auto">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.02] border border-white/[0.06] self-start sm:self-auto max-w-full overflow-x-auto scrollbar-hide">
             {CATEGORIES.map(cat => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`btn-interactive px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                className={`btn-interactive whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                   activeCategory === cat.id
                     ? 'bg-[#00f59b] text-black font-semibold'
                     : 'text-slate-400 hover:text-white'
@@ -55,7 +55,7 @@ export default function Projects() {
 
         {/* Featured Project: Face Studio */}
         {featuredProject && activeCategory === 'all' && (
-          <div className="glass-panel rounded-3xl p-6 sm:p-8 mb-8 border border-white/[0.1] hover:border-white/20 transition-all">
+          <div className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-8 mb-8 border border-white/[0.1] hover:border-white/20 transition-all">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs text-[#00f59b] bg-[#00f59b]/10 border border-[#00f59b]/25">
@@ -115,14 +115,14 @@ export default function Projects() {
         )}
 
         {/* Secondary Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {secondaryProjects.map((project) => (
             <div
               key={project.id}
-              className="glass-panel rounded-3xl p-6 border border-white/[0.08] hover:border-white/20 flex flex-col justify-between transition-all"
+              className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/[0.08] hover:border-white/20 flex flex-col justify-between transition-all"
             >
-              <div className="space-y-4">
-                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/[0.08] bg-black/60">
+              <div className="space-y-3.5 sm:space-y-4">
+                <div className="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] bg-black/60">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -137,7 +137,7 @@ export default function Projects() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
                     {project.title}
                   </h3>
                   <p className="text-sm text-slate-300 font-light leading-relaxed">
@@ -160,7 +160,7 @@ export default function Projects() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center gap-2.5 pt-5 border-t border-white/[0.06] mt-5">
+              <div className="flex items-center gap-2 pt-4 border-t border-white/[0.06] mt-4 sm:pt-5 sm:mt-5">
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}

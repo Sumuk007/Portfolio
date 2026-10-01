@@ -50,11 +50,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-20 bg-[#060709] border-t border-white/[0.06]">
+    <section id="contact" className="relative py-14 sm:py-20 bg-[#060709] border-t border-white/[0.06]">
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+        <div className="mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
             Get in Touch
           </h2>
           <div className="w-12 h-1 bg-gradient-to-r from-[#00f59b] to-[#00d2ff] rounded-full mt-2.5 shadow-[0_0_10px_rgba(0,245,155,0.4)]"></div>
@@ -64,10 +64,10 @@ export default function Contact() {
         </div>
 
         {/* 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* Left: Contact Info */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="glass-panel rounded-3xl p-6 border border-white/[0.08] space-y-4">
+            <div className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/[0.08] space-y-4">
               <h3 className="text-sm font-semibold text-white">Contact Info</h3>
 
               <div className="space-y-3">
@@ -122,9 +122,9 @@ export default function Contact() {
 
           {/* Right: Form */}
           <div className="lg:col-span-7">
-            <div className="glass-panel rounded-3xl p-6 sm:p-7 border border-white/[0.08]">
+            <div className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.08]">
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div className="space-y-1">
                     <label className="text-xs text-slate-300 block">
                       Name

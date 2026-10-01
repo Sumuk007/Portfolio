@@ -6,12 +6,12 @@ export default function Experience() {
   const [activeTab, setActiveTab] = useState('experience');
 
   return (
-    <section id="experience" className="relative py-20 bg-[#060709] border-t border-white/[0.06]">
+    <section id="experience" className="relative py-14 sm:py-20 bg-[#060709] border-t border-white/[0.06]">
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
               Experience & Education
             </h2>
             <div className="w-12 h-1 bg-gradient-to-r from-[#00f59b] to-[#00d2ff] rounded-full mt-2.5 shadow-[0_0_10px_rgba(0,245,155,0.4)]"></div>
@@ -49,11 +49,11 @@ export default function Experience() {
 
         {/* Tab 1: Work Experience */}
         {activeTab === 'experience' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {EXPERIENCE_LOG.map((item) => (
               <div 
                 key={item.id} 
-                className="glass-panel rounded-3xl p-6 sm:p-7 border border-white/[0.08] hover:border-white/15 transition-all space-y-4"
+                className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/[0.08] hover:border-white/15 transition-all space-y-3.5 sm:space-y-4"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-white/[0.06] pb-3">
                   <div>
@@ -102,11 +102,11 @@ export default function Experience() {
 
         {/* Tab 2: Education */}
         {activeTab === 'education' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {ACADEMIC_CREDENTIALS.map((edu) => (
               <div
                 key={edu.id}
-                className="glass-panel rounded-3xl p-6 border border-white/[0.08] hover:border-white/15 transition-all space-y-4 flex flex-col justify-between"
+                className="glass-panel rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/[0.08] hover:border-white/15 transition-all space-y-3.5 sm:space-y-4 flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-3">
