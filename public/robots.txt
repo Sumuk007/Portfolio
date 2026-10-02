@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location (update with your actual domain)
-Sitemap: https://sumuk.me/sitemap.xml
+Sitemap: https://sumuk.dev/sitemap.xml
 
 # Crawl-delay (optional, helps prevent server overload)
 Crawl-delay: 1
