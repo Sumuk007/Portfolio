@@ -80,7 +80,7 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
                       <Calendar size={13} />
                       <span>{item.period}</span>
                     </div>
