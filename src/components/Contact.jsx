@@ -79,7 +79,7 @@ export default function Contact() {
                     </div>
                     <div className="min-w-0">
                       <div className="text-[11px] text-slate-400">Email</div>
-                      <div className="text-xs sm:text-sm text-white font-mono truncate">{PERSONAL_INFO.email}</div>
+                      <div className="text-xs sm:text-sm text-white font-medium truncate">{PERSONAL_INFO.email}</div>
                     </div>
                   </div>
 

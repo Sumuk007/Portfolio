@@ -1,13 +1,12 @@
 // Assets import
-import sumukAvatar from '../assets/sumuk_logo.jpg';
-import sumukWebp from '../assets/sumuk.webp';
+import sumukAvatar from '../assets/sumuk_logo.avif';
 
 // Project images
-import facestudio from '../assets/projects/facestudio.png';
-import quietly from '../assets/projects/quietly.png';
-import ai_resume from '../assets/projects/ai_resume_analyzer.webp';
-import slcm from '../assets/projects/slcm.webp';
-import reelninja from '../assets/projects/reelninja.webp';
+import facestudio from '../assets/projects/facestudio.avif';
+import quietly from '../assets/projects/quietly.avif';
+import ai_resume from '../assets/projects/ai_resume_analyzer.avif';
+import slcm from '../assets/projects/slcm.avif';
+import reelninja from '../assets/projects/reelninja.avif';
 
 // Icons
 import reactIcon from '../assets/icons/react_icon.svg';
@@ -42,7 +41,6 @@ export const PERSONAL_INFO = {
   location: "India",
   status: "Available for roles & projects",
   avatar: sumukAvatar,
-  avatarWebp: sumukWebp,
   resumeUrl: "https://drive.google.com/drive/folders/1MDyDxm9jZFnA3pvD1dsU6qN0HrUyMns6?usp=sharing",
   email: "sumukbhat007@gmail.com",
   phone: "+91-7899097174",
